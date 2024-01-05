@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 import uuid
 
-st.set_page_config(page_title="Intent for the Planet", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="INTENTⓇ for the Planet", initial_sidebar_state="collapsed")
 
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
 
@@ -58,7 +58,7 @@ def save_responses(responses_content):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-st.title("INTENT for the Planet")
+st.title("INTENTⓇ for the Planet")
 
 # Streamlit form to collect responses
 with st.form(key='planet_care_form'):
