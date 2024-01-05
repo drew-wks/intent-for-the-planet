@@ -4,6 +4,32 @@ import os
 from datetime import datetime
 import uuid
 
+st.set_page_config(page_title="Intent for the Planet", initial_sidebar_state="collapsed")
+
+st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
+
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: visible;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                    padding-left: 3rem;
+                    padding-right: 3rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
+
 # Function to save responses to a JSON file matching the given schema
 def save_responses(responses_content):
     # Define the filename
@@ -32,8 +58,7 @@ def save_responses(responses_content):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-# Title of the app
-st.title("Reflections for a Better Planet")
+st.title("INTENT for the Planet")
 
 # Streamlit form to collect responses
 with st.form(key='planet_care_form'):
@@ -52,11 +77,7 @@ with st.form(key='planet_care_form'):
         "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
     }
 
-    # Submit button
     submitted = st.form_submit_button("Submit")
     if submitted:
         save_responses(responses_content)
         st.success("Thank you for your responses!")
-
-# Inform the user where the responses will be saved
-st.info("Your responses will be saved to a JSON file in the server.")
