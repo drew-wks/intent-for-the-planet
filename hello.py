@@ -107,7 +107,6 @@ with tab1:
             st.markdown(submitted)
 
     with tab2:
-        st.markdown("Moderator's Guide", unsafe_allow_html=True)
         doc = read_markdown_file("moderation_guidance.md")
         st.markdown(doc, unsafe_allow_html=True)
         # st.markdown("This is a process to align our well-being with that of the planet:")
