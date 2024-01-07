@@ -68,13 +68,13 @@ st.title("INTENT for the Planet")
 
 st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
 
-tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Query the Repository"])
+tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Explore the Intents"])
 
 with tab1:
     with st.form(key='planet_care_form'):
         responses = {
             "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?"),
-            "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet"),
+            "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet."),
             "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
             "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
             "My activities": st.text_area("5. What are your daily activities?").split('\\n'),
