@@ -63,7 +63,15 @@ def save_responses(responses_content):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
+
 st.title("INTENT for the Planet")
+
+st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
+
+tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Query the Repository"])
+
+with tab1:
+    st.markdown(overview, unsafe_allow_html=True)
 
 # Streamlit form to collect responses
 with st.form(key='planet_care_form'):
@@ -86,3 +94,9 @@ with st.form(key='planet_care_form'):
     if submitted:
         save_responses(responses_content)
         st.success("Thank you for your responses!")
+
+    with tab2:
+        st.markdown("Moderator's Guide", unsafe_allow_html=True)
+    
+    with tab3:
+        st.markdown("Query the Repository", unsafe_allow_html=True)
