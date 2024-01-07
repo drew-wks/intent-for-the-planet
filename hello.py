@@ -34,7 +34,7 @@ st.markdown("""
 # Function to save responses to a JSON file matching the given schema
 def save_responses(responses_content):
     # Define the filename
-    filename = "responses.json"
+    filename = "responses/responses.json"
     
     # Create a response dictionary matching the schema
     response = {
@@ -99,7 +99,7 @@ with tab1:
     with tab3:
         st.markdown("Query the Repository", unsafe_allow_html=True)
         client.api_key = st.secrets["OPENAI_API_KEY"]
-        with open('responses_all.json') as f:
+        with open('responses/responses_all.json') as f:
             data = json.load(f)
 
         def query(question):
