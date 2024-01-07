@@ -104,28 +104,26 @@ with tab1:
             with open(response_file) as f:
                 data = json.load(f)
 
-            user_message = f"""{question}```{data}```"""
-            system_message = "You are a helpful assistant. Try to answer the users question based on the info in the json provided"
 
-            client = OpenAI()
-            completion = client.chat.completions.create(
-                model="gpt-3.5-turbo-16k",  # gpt-4
-                max_tokens=8000,
-                messages=[
-                    {"role": "system", "content": system_message},
-                    {"role": "user", "content": user_message}
-                ]
+            messages =  [  
+                {'role':'system', 
+                'content': "You are a helpful assistant. Try to answer the users question based on the info in the json provided"},    
+                {'role':'user', 
+                'content': f"""{question}```{data}```"""}  
+            ] 
+
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo", 
+                messages=messages,
+                temperature=0, 
+                max_tokens=5000,
             )
-            response = completion.choices[0].message
-            return response.content
+            return response.choices[0].message["content"]
         
 
         question = st.text_input("Ask a question:")
         synthetic = st.checkbox('Include synthetic data')
-        response_file = "responses/responses_real.json"
-
-        if synthetic:
-            response_file = "responses/responses_all.json"
+        response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
 
         if st.button("Submit"):
             if question:
