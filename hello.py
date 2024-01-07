@@ -73,7 +73,7 @@ tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Quer
 with tab1:
     with st.form(key='planet_care_form'):
         responses = {
-            "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of "your world" what comes to mind? What is it that you can influence?"),
+            "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?"),
             "What the planet' is for me": st.text_area("2. What is 'the planet' for you?"),
             "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
             "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
