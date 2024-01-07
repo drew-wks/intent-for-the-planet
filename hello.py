@@ -72,7 +72,6 @@ tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Quer
 
 with tab1:
     with st.form(key='planet_care_form'):
-        st.markdown("This is a process to align our well-being with that of the planet:")
         responses = {
             "My world": st.text_input("1. What is your world?"),
             "What the planet' is for me": st.text_input("2. What is 'the planet' for you?"),
@@ -94,6 +93,7 @@ with tab1:
 
     with tab2:
         st.markdown("Moderator's Guide", unsafe_allow_html=True)
+        st.markdown("This is a process to align our well-being with that of the planet:")
     
     with tab3:
         st.markdown("Query the Repository", unsafe_allow_html=True)
