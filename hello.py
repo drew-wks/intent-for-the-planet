@@ -66,6 +66,10 @@ def save_responses(responses_content):
         json.dump(data, file, indent=4)
 
 
+def read_markdown_file(markdown_file):
+   return Path(markdown_file).read_text()
+
+
 st.title("INTENT for the Planet")
 
 st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
