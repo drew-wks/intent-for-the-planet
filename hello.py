@@ -121,10 +121,10 @@ with tab1:
 
         question = st.text_input("Ask a question:")
         synthetic = st.checkbox('Include synthetic data')
-        response_file = "'responses/responses_real.json"
+        response_file = "responses/responses_real.json"
 
         if synthetic:
-            response_file = "'responses/responses_all.json"
+            response_file = "responses/responses_all.json"
 
         if st.button("Submit"):
             if question:
