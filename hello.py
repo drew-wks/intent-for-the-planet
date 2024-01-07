@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 import uuid
 
-st.set_page_config(page_title="INTENTⓇ for the Planet", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
 
@@ -37,11 +37,16 @@ def save_responses(responses_content):
     
     # Create a response dictionary matching the schema
     response = {
-        "response_id": str(uuid.uuid4()),
-        "participant_id": str(uuid.uuid4()),
-        "response_version": "1",
-        "response_date": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "response_content": responses_content
+        "id": str(uuid.uuid4()),
+        "metadata": {
+            "p_num": "",
+            "p_haplotype": "",
+            "p_id": "",
+            "schema": "1",
+            "version": "1",
+            "date": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        },
+        "response": responses
     }
     
     # Check if the file exists
@@ -58,14 +63,14 @@ def save_responses(responses_content):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-st.title("INTENTⓇ for the Planet")
+st.title("INTENT for the Planet")
 
 # Streamlit form to collect responses
 with st.form(key='planet_care_form'):
     st.subheader("Please answer the following questions:")
-    responses_content = {
+    responses = {
         "My world": st.text_input("1. What is your world?"),
-        "What 'the planet' is for me": st.text_input("2. What is 'the planet' for you?"),
+        "What the planet' is for me": st.text_input("2. What is 'the planet' for you?"),
         "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
         "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
         "My activities": st.text_area("5. What are your daily activities?").split('\\n'),

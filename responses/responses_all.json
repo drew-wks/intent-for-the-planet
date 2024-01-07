@@ -1,12 +1,21 @@
 [
     {
-        "response_id": "1",
-        "participant_id": "2",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "Everything, but experienced from a single, particular perspective that is me.",
-            "What 'the planet' is for me": "The mass we call Earth and everything that is tied to it.",
+        "id": "1e97ec22-aea4-40c3-accc-753eb8c986d3",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "41232a11-bded-4e75-947a-92b2b788e455",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "Everything, but experienced from a single, particular perspective that is me."
+            ],
+            "What the planet is for me": [
+                "The mass we call Earth and everything that is tied to it."
+            ],
             "How I care for my physical well-being": [
                 "I listen to my body along with those that I trust to inform me on beneficial activities and practices and then I do them",
                 "I strive for regularity and associate these practices with goodness such as joy, beauty, fun",
@@ -16,36 +25,13 @@
             ],
             "How I care for my mental well-being": [
                 "Seek balance, try to avoid extremes that create unhealthy mental stress",
-                "Undertake regular habits and rituals that create stability and enable for emotional expression and mental processing",
-                "Tend to my physical needs and recognize my human limits",
-                "Stay a part of others\u2019 lives, hoping contributing to those lives",
-                "Stay connected to the big picture: that I am part of something bigger than myself",
-                "Bonus points for gentleness in my self-dealings"
+                "Undertake regular habits and rituals that create stability and enable for emotional expression and mental processing"
             ],
             "My activities": [
                 "Watching YouTube",
-                "Ride bicycle",
-                "Check in with my teenage daughter and parent her",
-                "Check in with my wife and be there for her",
-                "Do chores, organize, buy stuff",
-                "Sleep",
-                "Clean",
-                "Eat",
-                "Sex",
-                "Listen to music",
-                "Read and respond to communications",
-                "Fix things"
+                "Ride bicycle"
             ],
             "My resources": [
-                "My ability to create, connect, move, communicate, care and influence others",
-                "A certain network of people and relationships",
-                "A certain level of education and credibility that can be used to influence others",
-                "Enough wealth to provide some flexibility in how I spend my time",
-                "Some land",
-                "Physical abilities: ability to perform physically, to sail",
-                "Professional credentials such as captains license",
-                "Position in US Coast Guard Auxiliary",
-                "Having a car",
                 "Living near New York city",
                 "Ability to learn and use technology and software development",
                 "Business skills, MBA"
@@ -54,46 +40,35 @@
                 "Myself",
                 "Gail, Eva",
                 "My parents and brother",
-                "The participants of the AI forum I lead",
-                "Cycling partners",
-                "Long-time friends",
-                "Certain neighbors",
-                "Strangers",
-                "Those on whom I depend for sustenance and safety",
-                "Everyone else",
-                "The memories of those that used to be in my life"
+                "The participants of the AI forum I lead"
             ],
             "How I cherish the planet": [
-                "Avoid damaging it as much as possible",
-                "Responsible procreation",
-                "Gifts and acts of care for others",
-                "For the planet, give thanks and appreciate",
-                "Provide a habitat for nature",
-                "Provide a habitat for our family to exist and thrive",
-                "Maintain openness for ways to do more or be more impactful in my actions"
+                "Avoid damaging it as much as possible"
             ],
             "What I need to do more of": [
-                "Take more actions that cherish the earth",
-                "Find ways to cherish the planet that scale or grow over time",
-                "Dedicate time/effort to this aim of cherishing the earth",
-                "Remind myself and others of our chosenness and special abilities for this role we have inherited to cherish the earth"
+                "Take more actions that cherish the earth"
             ],
-            "What I need to do less of": "Worry and question. They sap precious energy",
+            "What I need to do less of": [
+                "Worry and question. They sap precious energy"
+            ],
             "My Intent For the Planet": [
-                "Align the values I (we) place on money with the best interest of the planet.",
-                "Embark on the journey by taking actions regularly, even when that means not having a plan. A boat responds better with a hand on its helm, even if it has no compass.",
-                "Identify ways to cherish the planet that have the potential to grow beyond me. Seek them, ask for them to be revealed, share them, and pursue them."
+                "Align the values I (we) place on money with the best interest of the planet."
             ]
         }
     },
     {
-        "response_id": "2",
-        "participant_id": "6",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "What is my world": "Everything that is going on, worldwide as well as with myself.",
-            "What 'the planet' is for me": "It\u2019s the only place I live physically. Its well being is my well being. It provides me what I need to live and survive.",
+        "id": "e4df6e2a-de6a-4f9b-8170-0eda4972ad99",
+        "metadata": {
+            "p_num": "6",
+            "p_haplotype": "3.1",
+            "p_id": "c9208464-fc5f-41cc-bd2b-1563581bea32",
+            "schema": "1",
+            "version": "1",
+            "date": "2023-12-31T23:00:00Z"
+        },
+        "responses": {
+            "My world": "Everything that is going on, worldwide as well as with myself.",
+            "What the planet is for me": "It’s the only place I live physically. Its well being is my well being. It provides me what I need to live and survive.",
             "How I care for my physical well-being": [
                 "Exercise",
                 "Nutritious diet",
@@ -159,21 +134,154 @@
                 "Contribute to sustaining and protecting woodlands and natural resources in the state of SC"
             ],
             "What I need to do less of": [
-                "Not waste time, I don\u2019t waste resources to obtain or participate in things that aren\u2019t needed or aren\u2019t important.",
+                "Not waste time, I don’t waste resources to obtain or participate in things that aren’t needed or aren’t important.",
                 "Not worrying or stressing over things I cannot help",
                 "Eat less sugar"
             ],
-            "My Intent For the Planet": "I am deeply rooted in my faith and firmly believe in the importance of incorporating God in our lives where He can offer direction, sustenance, love, and peace. There is a profound link between our Creator and the complexity of biodiversity, natural resources, and various environmental situations that surround us to provide and affect our human habitat. The beautify and mind-boggling organization of our natural world are clear indicators of a Creators\u2019 hand in their design. Experiencing nature by being outdoors can help us connect to our Lord in a testament to this amazing and remarkable world of life and its surroundings:  for example the stunning dynamics of a sunset, the beautify of mountains and the seasonal color changes show its magnitude. However, many of us miss out on this experience due to fear, misunderstanding, or lack of opportunity. Surely, the absence of God in one's life is a significant loss. My experience has shown me that His guidance through life as realized in nature is real and transformative. My aim is to help others to meaningfully and viscerally experience the love and guidance of our Lord as I have. This is why my intent is to contribute to sustaining and protecting woodlands and natural resources in the state of SC. I have been blessed with resources that I am determined to nurture and share, not just in my lifetime but as a lasting legacy. By addressing and dispelling common misconceptions, I aim to facilitate a deeper understanding of nature and its link to God through this endeavor."
+            "My Intent For the Planet": "I am deeply rooted in my faith and firmly believe in the importance of incorporating God in our lives where He can offer direction, sustenance, love, and peace. There is a profound link between our Creator and the complexity of biodiversity, natural resources, and various environmental situations that surround us to provide and affect our human habitat. The beautify and mind-boggling organization of our natural world are clear indicators of a Creators’ hand in their design. Experiencing nature by being outdoors can help us connect to our Lord in a testament to this amazing and remarkable world of life and its surroundings:  for example the stunning dynamics of a sunset, the beautify of mountains and the seasonal color changes show its magnitude. However, many of us miss out on this experience due to fear, misunderstanding, or lack of opportunity. Surely, the absence of God in one's life is a significant loss. My experience has shown me that His guidance through life as realized in nature is real and transformative. My aim is to help others to meaningfully and viscerally experience the love and guidance of our Lord as I have. This is why my intent is to contribute to sustaining and protecting woodlands and natural resources in the state of SC. I have been blessed with resources that I am determined to nurture and share, not just in my lifetime but as a lasting legacy. By addressing and dispelling common misconceptions, I aim to facilitate a deeper understanding of nature and its link to God through this endeavor."
         }
     },
     {
-        "response_id": "3",
-        "participant_id": "1001",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A blend of technology and tradition, where ancient customs meet the digital age.",
-            "What 'the planet' is for me": "A complex ecosystem where every action we take has a ripple effect.",
+        "id": "de4a8516-9641-49a7-9db4-be5873913da6",
+        "metadata": {
+            "p_num": "1",
+            "p_haplotype": "1.1",
+            "p_id": "4c56684f-cf4d-4090-95b5-f815489b7e64",
+            "schema": "1",
+            "version": "7",
+            "date": "2023-10-19T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "Stan & Birgitte",
+                "Yasmin",
+                "Colin & Annie",
+                "Kadampa family",
+                "Centre students",
+                "Brighton",
+                "Lund family",
+                "Fuller family",
+                "Harland family",
+                "Corpe family",
+                "Sasha & Leona",
+                "Brighton friends",
+                "Europe",
+                "New York",
+                "Places I have lived",
+                "People and places I have a connection to",
+                "LinkedIn family",
+                "Previous work colleagues",
+                "Design Denmark",
+                "Copenhagen",
+                "Denmark"
+            ],
+            "What the planet is for me": [
+                "A big blue blob floating in space",
+                "That which sustains life",
+                "Nature (including animals and insects)",
+                "Earth and its resources",
+                "Water and air",
+                "My provider"
+            ],
+            "How I care for my physical well-being": [
+                "Taking care of teeth",
+                "Vaccinations",
+                "Health checks",
+                "Good food",
+                "Swimming",
+                "Running",
+                "Visits to doctor",
+                "Meditation"
+            ],
+            "How I care for my mental well-being": [
+                "Study Dharma",
+                "Walk",
+                "Pray"
+            ],
+            "My activities": [
+                "Study Dharma",
+                "Teach Dharma",
+                "Lead meditation centre",
+                "Talk with people",
+                "Clean home",
+                "Buy food",
+                "Eat",
+                "Sleep",
+                "Read the news"
+            ],
+            "My resources": [
+                "Pensions",
+                "Stocks",
+                "Money in the bank",
+                "English language",
+                "Danish language",
+                "Some French and Dutch",
+                "Records",
+                "Books",
+                "Guitars and amp",
+                "Audio equipment",
+                "Experience of working in organisations",
+                "Business contacts",
+                "Dharma knowledge",
+                "Dharma experience",
+                "Clothes",
+                "Good heart",
+                "Friendliness",
+                "Love",
+                "Compassion",
+                "Wisdom",
+                "Knowledge of Science, Engineering, Design, Media, Advertising",
+                "My Spiritual Guide and spiritual friends"
+            ],
+            "Who I care about": [
+                "My family and friends",
+                "Everyone else"
+            ],
+            "How I cherish the planet": [
+                "I don’t have a car",
+                "I bike and use public transport",
+                "Limit my flights",
+                "Recycle my waste",
+                "I meditate",
+                "I teach Dharma",
+                "I pray",
+                "I don’t buy too many things",
+                "I try to find good homes for the things I no longer need"
+            ],
+            "What I need to do more of": [
+                "Growing stuff",
+                "Getting rid of stuff",
+                "Physical exercise",
+                "Purification",
+                "Become interested in money and ethical investment"
+            ],
+            "What I need to do less of": [
+                "Breaking commitments",
+                "Procrastination",
+                "Distractions"
+            ],
+            "My Intent For the Planet": [
+                "Abandoning the ordinary conception of myself, I joyfully cherish everyone I meet and remember, and do whatever needs to be done joyfully."
+            ]
+        }
+    },
+    {
+        "id": "1ee4ae1f-d119-4b1c-9a7e-74ed4470af7f",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A blend of technology and tradition, where ancient customs meet the digital age."
+            ],
+            "What 'the planet' is for me": [
+                "A complex ecosystem where every action we take has a ripple effect."
+            ],
             "How I care for my physical well-being": [
                 "Daily yoga and meditation",
                 "Following a plant-based diet",
@@ -222,18 +330,31 @@
                 "Invest in renewable energy projects",
                 "Promote cultural preservation alongside modernization"
             ],
-            "What I need to do less of": "Getting absorbed in the digital world at the expense of real-world interactions.",
-            "My Intent For the Planet": "To bridge the gap between tradition and technology, ensuring that our advancements in the digital world do not come at the expense of our cultural heritage and environmental health."
+            "What I need to do less of": [
+                "Getting absorbed in the digital world at the expense of real-world interactions."
+            ],
+            "My Intent For the Planet": [
+                "To bridge the gap between tradition and technology, ensuring that our advancements in the digital world do not come at the expense of our cultural heritage and environmental health."
+            ]
         }
     },
     {
-        "response_id": "4",
-        "participant_id": "1002",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A canvas of creativity and innovation, constantly evolving with new ideas and perspectives.",
-            "What 'the planet' is for me": "An endless source of inspiration and a reminder of our shared responsibility to protect it.",
+        "id": "8049d03c-2e1d-4046-b116-6bc42604cc8b",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A canvas of creativity and innovation, constantly evolving with new ideas and perspectives."
+            ],
+            "What 'the planet' is for me": [
+                "An endless source of inspiration and a reminder of our shared responsibility to protect it."
+            ],
             "How I care for my physical well-being": [
                 "Engaging in creative arts for mental relaxation",
                 "Regular jogging and fitness routines",
@@ -280,18 +401,31 @@
                 "Explore more environmentally friendly art practices",
                 "Teach more workshops on sustainable art"
             ],
-            "What I need to do less of": "Spending time worrying about the commercial aspect of art.",
-            "My Intent For the Planet": "To use my art as a tool for environmental activism, inspiring others to see the beauty of our planet and the importance of preserving it for future generations."
+            "What I need to do less of": [
+                "Spending time worrying about the commercial aspect of art."
+            ],
+            "My Intent For the Planet": [
+                "To use my art as a tool for environmental activism, inspiring others to see the beauty of our planet and the importance of preserving it for future generations."
+            ]
         }
     },
     {
-        "response_id": "5",
-        "participant_id": "1003",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A fast-paced, high-stakes environment where success is measured by wealth and power.",
-            "What 'the planet' is for me": "A resource to be utilized for economic growth and advancement.",
+        "id": "46e53db6-c06c-467a-905b-c3d050e07211",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A fast-paced, high-stakes environment where success is measured by wealth and power."
+            ],
+            "What 'the planet' is for me": [
+                "A resource to be utilized for economic growth and advancement."
+            ],
             "How I care for my physical well-being": [
                 "Regular gym sessions focusing on strength training",
                 "Following a strict diet to maintain peak physical appearance",
@@ -328,18 +462,31 @@
                 "Expanding my business empire",
                 "Increasing my influence in the corporate world"
             ],
-            "What I need to do less of": "Wasting time on non-profitable ventures.",
-            "My Intent For the Planet": "To capitalize on emerging environmental trends and technologies for financial gain and to maintain a position of power in the business world."
+            "What I need to do less of": [
+                "Wasting time on non-profitable ventures."
+            ],
+            "My Intent For the Planet": [
+                "To capitalize on emerging environmental trends and technologies for financial gain and to maintain a position of power in the business world."
+            ]
         }
     },
     {
-        "response_id": "6",
-        "participant_id": "1004",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A chaotic mix of pleasure-seeking and living in the moment, without much concern for the future.",
-            "What 'the planet' is for me": "A playground with endless opportunities for enjoyment and self-indulgence.",
+        "id": "72a4cfe0-6c5f-414e-8ba2-0e00d1fa073d",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A chaotic mix of pleasure-seeking and living in the moment, without much concern for the future."
+            ],
+            "What 'the planet' is for me": [
+                "A playground with endless opportunities for enjoyment and self-indulgence."
+            ],
             "How I care for my physical well-being": [
                 "Indulging in rich foods and drinks",
                 "Avoiding strenuous exercise",
@@ -364,7 +511,7 @@
             ],
             "Who I care about": [
                 "Friends who are fun to be around",
-                "People who don\u2019t judge my lifestyle",
+                "People who don’t judge my lifestyle",
                 "Acquaintances who provide access to exclusive events"
             ],
             "How I cherish the planet": [
@@ -375,18 +522,31 @@
                 "Finding new ways to enjoy life",
                 "Exploring more exotic destinations and experiences"
             ],
-            "What I need to do less of": "Worrying about long-term consequences.",
-            "My Intent For the Planet": "To enjoy life to the fullest without being burdened by concerns about the environment or the future."
+            "What I need to do less of": [
+                "Worrying about long-term consequences."
+            ],
+            "My Intent For the Planet": [
+                "To enjoy life to the fullest without being burdened by concerns about the environment or the future."
+            ]
         }
     },
     {
-        "response_id": "7",
-        "participant_id": "1005",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "An endless pursuit of knowledge and understanding, driven by curiosity and a love for science.",
-            "What 'the planet' is for me": "An intricate laboratory of natural phenomena waiting to be explored and understood.",
+        "id": "7ed8fc08-9658-45a0-b3cf-d894e661c9aa",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "An endless pursuit of knowledge and understanding, driven by curiosity and a love for science."
+            ],
+            "What 'the planet' is for me": [
+                "An intricate laboratory of natural phenomena waiting to be explored and understood."
+            ],
             "How I care for my physical well-being": [
                 "Regular walks to clear my mind",
                 "Balanced diet based on scientific nutritional guidelines",
@@ -426,18 +586,31 @@
                 "Engaging more with policymakers to inform science-based decisions",
                 "Increasing public awareness about scientific issues"
             ],
-            "What I need to do less of": "Getting lost in research at the expense of personal relationships.",
-            "My Intent For the Planet": "To contribute to a deeper understanding of our world through scientific discovery and to foster a society that values and applies scientific knowledge for the betterment of all."
+            "What I need to do less of": [
+                "Getting lost in research at the expense of personal relationships."
+            ],
+            "My Intent For the Planet": [
+                "To contribute to a deeper understanding of our world through scientific discovery and to foster a society that values and applies scientific knowledge for the betterment of all."
+            ]
         }
     },
     {
-        "response_id": "8",
-        "participant_id": "1006",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A survival game, constantly adapting to changing circumstances and overcoming challenges.",
-            "What 'the planet' is for me": "A harsh and competitive arena where only the fittest and most resourceful thrive.",
+        "id": "5a5524d2-22ef-4b70-9edd-74eb92e7b800",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A survival game, constantly adapting to changing circumstances and overcoming challenges."
+            ],
+            "What 'the planet' is for me": [
+                "A harsh and competitive arena where only the fittest and most resourceful thrive."
+            ],
             "How I care for my physical well-being": [
                 "Intense workout routines to stay strong and agile",
                 "Practicing survival skills like hunting and foraging",
@@ -476,18 +649,31 @@
                 "Refining and updating my survival skills",
                 "Building a stronger community of survival experts"
             ],
-            "What I need to do less of": "Relying on modern conveniences that weaken survival instincts.",
-            "My Intent For the Planet": "To promote a lifestyle of self-reliance and resilience, showing others how to respect and adapt to the natural world while being prepared for any challenge."
+            "What I need to do less of": [
+                "Relying on modern conveniences that weaken survival instincts."
+            ],
+            "My Intent For the Planet": [
+                "To promote a lifestyle of self-reliance and resilience, showing others how to respect and adapt to the natural world while being prepared for any challenge."
+            ]
         }
     },
     {
-        "response_id": "9",
-        "participant_id": "1007",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A harmonious blend of ancient traditions and respect for the natural world, deeply rooted in indigenous culture.",
-            "What 'the planet' is for me": "A sacred entity, an interconnected web of life where every element has spiritual significance.",
+        "id": "1d88860e-b268-4bd6-b5b7-a9423f6cdb73",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A harmonious blend of ancient traditions and respect for the natural world, deeply rooted in indigenous culture."
+            ],
+            "What 'the planet' is for me": [
+                "A sacred entity, an interconnected web of life where every element has spiritual significance."
+            ],
             "How I care for my physical well-being": [
                 "Following a traditional diet based on local, natural foods",
                 "Participating in ritual dances and communal activities for physical health",
@@ -527,18 +713,31 @@
                 "Sharing our cultural wisdom with the wider world",
                 "Fighting against environmental exploitation and degradation"
             ],
-            "What I need to do less of": "Allowing modern influences to erode our traditional ways.",
-            "My Intent For the Planet": "To uphold the legacy of our ancestors by living sustainably, protecting our sacred earth, and sharing the wisdom of our people with the global community."
+            "What I need to do less of": [
+                "Allowing modern influences to erode our traditional ways."
+            ],
+            "My Intent For the Planet": [
+                "To uphold the legacy of our ancestors by living sustainably, protecting our sacred earth, and sharing the wisdom of our people with the global community."
+            ]
         }
     },
     {
-        "response_id": "10",
-        "participant_id": "1008",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A life centered around nomadic pastoralism, constantly adapting to the environment and moving with the seasons.",
-            "What 'the planet' is for me": "A vast expanse of land that provides for our needs, dictates our movements, and shapes our way of life.",
+        "id": "ee9beeca-b18a-4e02-9a0f-91b538a2ab20",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A life centered around nomadic pastoralism, constantly adapting to the environment and moving with the seasons."
+            ],
+            "What 'the planet' is for me": [
+                "A vast expanse of land that provides for our needs, dictates our movements, and shapes our way of life."
+            ],
             "How I care for my physical well-being": [
                 "Herding and caring for livestock as a source of food and livelihood",
                 "Consuming a diet mainly consisting of meat, dairy, and foraged foods",
@@ -577,18 +776,31 @@
                 "Educating outsiders about the nomadic way of life",
                 "Adapting ancient practices to modern environmental challenges"
             ],
-            "What I need to do less of": "Relying on external resources that could disrupt our sustainable practices.",
-            "My Intent For the Planet": "To maintain the delicate balance between human needs and environmental stewardship, demonstrating a sustainable way of life that has thrived for generations."
+            "What I need to do less of": [
+                "Relying on external resources that could disrupt our sustainable practices."
+            ],
+            "My Intent For the Planet": [
+                "To maintain the delicate balance between human needs and environmental stewardship, demonstrating a sustainable way of life that has thrived for generations."
+            ]
         }
     },
     {
-        "response_id": "11",
-        "participant_id": "1009",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A digital-native universe, where social media, gaming, and online communities are central to my daily life.",
-            "What 'the planet' is for me": "A global network connected by the internet, where information and trends move at lightning speed.",
+        "id": "fd7ab4e8-3b5e-41da-8c61-e48366b8d336",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A digital-native universe, where social media, gaming, and online communities are central to my daily life."
+            ],
+            "What 'the planet' is for me": [
+                "A global network connected by the internet, where information and trends move at lightning speed."
+            ],
             "How I care for my physical well-being": [
                 "Playing soccer with friends after school",
                 "Trying to eat healthier, though I love fast food",
@@ -627,18 +839,31 @@
                 "Spend more time outdoors",
                 "Try to understand global issues better"
             ],
-            "What I need to do less of": "Probably spending less time on my phone (but it's hard).",
-            "My Intent For the Planet": "To become more aware of how my actions affect the environment and to use my online presence to spread positive messages."
+            "What I need to do less of": [
+                "Probably spending less time on my phone (but it's hard)."
+            ],
+            "My Intent For the Planet": [
+                "To become more aware of how my actions affect the environment and to use my online presence to spread positive messages."
+            ]
         }
     },
     {
-        "response_id": "12",
-        "participant_id": "1010",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "An ever-changing landscape of school, hobbies, and figuring out my place in the world.",
-            "What 'the planet' is for me": "A complex ecosystem that I'm just beginning to understand and care about.",
+        "id": "8aa648f5-8774-491e-9287-c45faf603cc7",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "An ever-changing landscape of school, hobbies, and figuring out my place in the world."
+            ],
+            "What 'the planet' is for me": [
+                "A complex ecosystem that I'm just beginning to understand and care about."
+            ],
             "How I care for my physical well-being": [
                 "Joining the school's track team",
                 "Eating more fruits and veggies (when I remember)",
@@ -679,18 +904,31 @@
                 "Spending time learning about different cultures and countries",
                 "Practicing my guitar regularly"
             ],
-            "What I need to do less of": "Procrastinating on homework and spending too much time gaming.",
-            "My Intent For the Planet": "To grow into a responsible adult who contributes positively to the world, and maybe find a way to make a difference through my art or music."
+            "What I need to do less of": [
+                "Procrastinating on homework and spending too much time gaming."
+            ],
+            "My Intent For the Planet": [
+                "To grow into a responsible adult who contributes positively to the world, and maybe find a way to make a difference through my art or music."
+            ]
         }
     },
     {
-        "response_id": "13",
-        "participant_id": "1011",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A realm of diplomacy, policy-making, and navigating the complexities of international relations.",
-            "What 'the planet' is for me": "A stage for geopolitical interactions, where each decision can impact global dynamics.",
+        "id": "69a7e00e-5680-481c-a9cf-926da71c2df7",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A realm of diplomacy, policy-making, and navigating the complexities of international relations."
+            ],
+            "What 'the planet' is for me": [
+                "A stage for geopolitical interactions, where each decision can impact global dynamics."
+            ],
             "How I care for my physical well-being": [
                 "Regular morning jogs to maintain stamina",
                 "Strict adherence to a balanced diet for optimal health",
@@ -728,18 +966,31 @@
                 "Increasing investments in green technologies",
                 "Strengthening international collaborations for environmental conservation"
             ],
-            "What I need to do less of": "Getting entangled in domestic political rivalries that distract from global issues.",
-            "My Intent For the Planet": "To lead by example in transforming my nation into a model for sustainable development, while advocating for global environmental policies that ensure a healthier planet."
+            "What I need to do less of": [
+                "Getting entangled in domestic political rivalries that distract from global issues."
+            ],
+            "My Intent For the Planet": [
+                "To lead by example in transforming my nation into a model for sustainable development, while advocating for global environmental policies that ensure a healthier planet."
+            ]
         }
     },
     {
-        "response_id": "14",
-        "participant_id": "1012",
-        "response_version": "1",
-        "response_date": "2024-01-04T00:00:00Z",
-        "response_content": {
-            "My world": "A life of resilience, adaptability, and strong community ties, shaped by the demands of military life.",
-            "What 'the planet' is for me": "A diverse tapestry of cultures and experiences, often seen through the lens of my spouse's deployments.",
+        "id": "69472644-f024-488d-8529-5233b3adae35",
+        "metadata": {
+            "p_num": "3",
+            "p_haplotype": "3.1",
+            "p_id": "71f50ae2-03e1-43d3-9516-1558f844dc75",
+            "schema": "1",
+            "version": "2",
+            "date": "2024-01-04T00:00:00Z"
+        },
+        "responses": {
+            "My world": [
+                "A life of resilience, adaptability, and strong community ties, shaped by the demands of military life."
+            ],
+            "What 'the planet' is for me": [
+                "A diverse tapestry of cultures and experiences, often seen through the lens of my spouse's deployments."
+            ],
             "How I care for my physical well-being": [
                 "Participating in fitness groups with other military spouses",
                 "Maintaining a healthy diet despite frequent relocations",
@@ -778,8 +1029,12 @@
                 "Coordinating with local organizations for environmental conservation projects",
                 "Promoting the use of eco-friendly products within military households"
             ],
-            "What I need to do less of": "Worrying about the uncertainties and risks associated with military life.",
-            "My Intent For the Planet": "To establish a culture of environmental consciousness and action within military communities, ensuring that our lifestyles positively contribute to the health of the planet."
+            "What I need to do less of": [
+                "Worrying about the uncertainties and risks associated with military life."
+            ],
+            "My Intent For the Planet": [
+                "To establish a culture of environmental consciousness and action within military communities, ensuring that our lifestyles positively contribute to the health of the planet."
+            ]
         }
     }
 ]
