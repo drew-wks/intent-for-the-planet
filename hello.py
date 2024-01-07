@@ -97,3 +97,32 @@ with tab1:
     
     with tab3:
         st.markdown("Query the Repository", unsafe_allow_html=True)
+        client.api_key = st.secrets["OPENAI_API_KEY"]
+        with open('responses_all.json') as f:
+            data = json.load(f)
+            
+        def query(question):
+            user_message = f"""{question}```{data}```"""
+            system_message = "You are a helpful assistant. Try to answer the users question based on the info in the json provided"
+
+            completion = client.chat.completions.create(
+                model="gpt-3.5-turbo-16k",  # gpt-4
+                max_tokens=8000,
+                messages=[
+                    {"role": "system", "content": system_message},
+                    {"role": "user", "content": user_message}
+                ]
+            )
+            response = completion.choices[0].message
+            return response.content
+        
+
+        question = st.text_input("Ask a question:")
+
+        if st.button("Submit"):
+            if question:
+                # Call the query function with the user's question
+                response = query(question)
+                st.write(response)
+            else:
+                st.write("Please enter a question.")
