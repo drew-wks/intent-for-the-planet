@@ -99,10 +99,11 @@ with tab1:
     with tab3:
         st.markdown("Query the Repository", unsafe_allow_html=True)
         openai.api_key = st.secrets["OPENAI_API_KEY"]
-        with open('responses/responses_all.json') as f:
-            data = json.load(f)
 
         def query(question):
+            with open(response_file) as f:
+                data = json.load(f)
+
             user_message = f"""{question}```{data}```"""
             system_message = "You are a helpful assistant. Try to answer the users question based on the info in the json provided"
 
@@ -119,6 +120,11 @@ with tab1:
         
 
         question = st.text_input("Ask a question:")
+        synthetic = st.checkbox('Include synthetic data')
+        response_file = "'responses/responses_real.json"
+
+        if synthetic:
+            response_file = "'responses/responses_all.json"
 
         if st.button("Submit"):
             if question:
