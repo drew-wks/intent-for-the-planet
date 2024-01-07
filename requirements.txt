@@ -7,5 +7,4 @@ qdrant-client==1.6.3
 tiktoken==0.5.1
 streamlit_extras
 datetime
-openai
 openpyxl # used to import the library.xlsx file
