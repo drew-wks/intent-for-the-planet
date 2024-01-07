@@ -92,6 +92,7 @@ with tab1:
         if submitted:
             save_responses(submitted)
             st.success("Thank you for your responses!")
+            st.markdown(submitted)
 
     with tab2:
         st.markdown("Moderator's Guide", unsafe_allow_html=True)
