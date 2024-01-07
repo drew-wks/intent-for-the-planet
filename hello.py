@@ -3,6 +3,7 @@ import json
 import os
 from datetime import datetime
 import uuid
+from openai import OpenAI
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
@@ -100,7 +101,7 @@ with tab1:
         client.api_key = st.secrets["OPENAI_API_KEY"]
         with open('responses_all.json') as f:
             data = json.load(f)
-            
+
         def query(question):
             user_message = f"""{question}```{data}```"""
             system_message = "You are a helpful assistant. Try to answer the users question based on the info in the json provided"
