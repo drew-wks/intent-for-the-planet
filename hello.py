@@ -107,6 +107,7 @@ with tab1:
             user_message = f"""{question}```{data}```"""
             system_message = "You are a helpful assistant. Try to answer the users question based on the info in the json provided"
 
+            client = OpenAI()
             completion = client.chat.completions.create(
                 model="gpt-3.5-turbo-16k",  # gpt-4
                 max_tokens=8000,
