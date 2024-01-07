@@ -4,6 +4,12 @@ import os
 from datetime import datetime
 import uuid
 import openai
+from pathlib import Path
+import os
+import base64
+
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)
 
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
