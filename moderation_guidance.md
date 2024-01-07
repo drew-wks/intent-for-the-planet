@@ -1,7 +1,5 @@
 13 December 2023
 
-## Individual INTENT for the planet – Guidance document
-
 **Template for an individual INTENT**
 
 I will restore my world to health,
