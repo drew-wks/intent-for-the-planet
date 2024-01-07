@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 import uuid
-import openai
+from openai import OpenAI
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
