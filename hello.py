@@ -71,7 +71,7 @@ st.markdown(f"The intent of the session is to encourage introspection and person
 tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Query the Repository"])
 
 with tab1:
-    st.markdown(overview, unsafe_allow_html=True)
+    st.markdown("Contribute your Intent", unsafe_allow_html=True)
 
 # Streamlit form to collect responses
 with st.form(key='planet_care_form'):
