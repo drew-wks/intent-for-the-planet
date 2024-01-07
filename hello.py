@@ -90,7 +90,7 @@ with tab1:
 
         submitted = st.form_submit_button("Submit")
         if submitted:
-            save_responses(responses_content)
+            save_responses(submitted)
             st.success("Thank you for your responses!")
 
     with tab2:
