@@ -52,10 +52,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown(
-    '<h3 class="logotype">INTENT<em>®</em> class="header" style="color: black; display: inline;"> for the Planet</h3>', 
-    unsafe_allow_html=True
-)
+st.markdown('<h3 class="logotype">INTENT<em>®</em><span class="header" style="color: black;"> for the Planet</span></h3>', unsafe_allow_html=True)
+
 st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
