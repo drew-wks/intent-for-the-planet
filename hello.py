@@ -108,7 +108,8 @@ with tab1:
             st.session_state['user_responses'] = user_responses
             form_container.empty()
     if submitted:
-        st.success("Thank you for your responses!")
+        st.success("Thank you for contributing your Intent for the planet!")
+        st.balloons()
         for key, values in st.session_state['user_responses'].items():
             st.markdown(f"**{key}**:")
             for value in values:
