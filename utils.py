@@ -18,10 +18,10 @@ now_utc = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 # Function to save responses to a JSON file matching the given schema
 def save_responses(user_responses):
     # Define the filename
-    filename = "responses/response_{now_utc}.json"
+    filename = f"responses/response_{now_utc}.json"
     
     # Create a response dictionary matching the schema
-    response = {
+    full_response_record = {
         "id": str(uuid.uuid4()),
         "metadata": {
             "p_num": "",
@@ -39,9 +39,9 @@ def save_responses(user_responses):
         # If the file exists, load the existing data and append the new response
         with open(filename, 'r') as file:
             data = json.load(file)
-        data.append(response)
+        data.append(full_response_record)
     else:
-        data = [response]
+        data = [full_response_record]
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
