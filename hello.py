@@ -52,7 +52,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<span class="logotype">INTENT<em>® </em></span><span class="header h4-style" style="color: black;"> for the Planet</span>', unsafe_allow_html=True)
+st.markdown('<h3 span class="logotype">INTENT<em>® </em></span><span class="header" style="color: black;"> for the Planet</span></h3>', unsafe_allow_html=True)
 
 st.markdown("""
     <style>
@@ -68,7 +68,7 @@ st.markdown("""
             /* Add other h4 styles if needed */
         }
     </style>
-    <span class="logotype h3-style">INTENT<em>®</em></span>
+    <span class="logotype h3-style">INTENT<em>® </em></span>
     <span class="header h4-style" style="color: black;"> for the Planet</span>
 """, unsafe_allow_html=True)
 
