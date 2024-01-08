@@ -1,10 +1,4 @@
-<style>
-    .custom-font {
-        font-family: 'Lexend', sans-serif;
-    }
-</style>
-
-<div class="custom-font">
+<br>
 
 **Template for an individual INTENT**
 
