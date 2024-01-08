@@ -2,7 +2,6 @@ import streamlit as st
 import utils
 import os
 from datetime import datetime
-import uuid
 import sys
 import pandas as pd
 from pathlib import Path
@@ -56,7 +55,11 @@ with tab1:
             utils.save_responses(user_responses)
             st.success("Thank you for your responses!")
             for key, value in user_responses.items():
-                st.markdown(f"**{key}**:\n\n  {value}")
+                st.markdown(f"**{key}**:")
+                lines = value.split('\n')
+                for line in lines:
+                    st.text(line)
+
 
 
 with tab2:
