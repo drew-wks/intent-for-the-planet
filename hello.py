@@ -52,9 +52,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<h4 class="logotype">INTENT<em>®</em><span class="header" style="color: black;"> for the Planet</span></h4>', unsafe_allow_html=True)
-
-st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p>', unsafe_allow_html=True)
+st.markdown(
+    '<h3 class="logotype">INTENT<em>®</em></h3>'
+    '<h4 class="header" style="color: black; display: inline;"> for the Planet</h4>', 
+    unsafe_allow_html=True
+)
+st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
 tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the INTENTs"])
