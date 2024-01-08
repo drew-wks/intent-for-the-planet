@@ -107,11 +107,12 @@ with tab1:
             #utils.save_responses(user_responses)
             st.session_state['user_responses'] = user_responses
             form_container.empty()
-            st.success("Thank you for your responses!")
-            for key, values in st.session_state['user_responses'].items():
-                st.markdown(f"**{key}**:")
-                for value in values:
-                    st.markdown(f"*{value}*")
+    if submitted:
+        st.success("Thank you for your responses!")
+        for key, values in st.session_state['user_responses'].items():
+            st.markdown(f"**{key}**:")
+            for value in values:
+                st.markdown(f"*{value}*")
 
 
 
