@@ -99,15 +99,15 @@ with tab1:
             user_responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
-                "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
-                "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
-                "My activities": st.text_area("5. What are your daily activities?").split('\\n'),
-                "My resources": st.text_area("6. What are your resources?").split('\\n'),
-                "Who I care about": st.text_area("7. Who do you care about?").split('\\n'),
-                "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?").split('\\n'),
-                "What I need to do more of": st.text_area("9. What do I need to do more of?").split('\\n'),
-                "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n'),
-                "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
+                "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?",placeholder="You can put more than one idea down.", help="Reflect on the things you do to support your physical well-being.").split('\\n'),
+                "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?",placeholder="You can put more than one idea down.", help="Think about activities and practices that contribute to your mental health. What are the things you do that give you mental peace?").split('\\n'),
+                "My activities": st.text_area("5. What are your daily activities?",placeholder="List your daily activities. What do you do?", help="For the moment, don't be concerned avout how these may or may not affect the planet. Just simply-- what are your activities? How do you spend your time?").split('\\n'),
+                "My resources": st.text_area("6. What are your resources?",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "Who I care about": st.text_area("7. Who do you care about?",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "What I need to do more of": st.text_area("9. What do I need to do more of?",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "What I need to do less of": st.text_area("10. What do I need to do less of?",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "My Intent For the Planet": st.text_area("11. Your intent for the planet:",placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n')
             }
             submitted = st.form_submit_button("Submit", type="primary")
         if submitted:
