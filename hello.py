@@ -57,7 +57,7 @@ with tab1:
             for key, values in user_responses.items():
                 st.markdown(f"**{key}**:")
                 for value in values:
-                    st.text(value)
+                    st.markdown(f"*{value}*")
 
 
 with tab2:
