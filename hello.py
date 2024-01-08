@@ -48,7 +48,7 @@ st.markdown("""
             
         .tight-margin {
             margin-bottom: 5px; /* Reduce the bottom margin */
-        }>
+        }
 
         /* Other styles */
         [data-testid="collapsedControl"] { display: none; }
