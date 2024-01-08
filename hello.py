@@ -110,7 +110,7 @@ with tab1:
 
 with tab2:
     doc = utils.read_markdown_file("moderation_guidance.md")
-    st.markdown(f"<div class='doc-style'>{doc}</div>", unsafe_allow_html=True)
+    st.markdown(doc, unsafe_allow_html=True)
 
 
 with tab3:

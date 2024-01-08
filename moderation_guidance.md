@@ -1,4 +1,10 @@
-13 December 2023
+<style>
+    .custom-font {
+        font-family: 'Lexend', sans-serif;
+    }
+</style>
+
+<div class="custom-font">
 
 **Template for an individual INTENT**
 
@@ -104,3 +110,4 @@ a broader impact on the planet and its inhabitants.
 planning.
 
 <br>
+</div>
