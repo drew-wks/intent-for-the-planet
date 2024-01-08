@@ -20,7 +20,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Custom styles
 st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap');
 
         .logotype {
             font-family: Courier;
