@@ -52,12 +52,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<h5 class="logotype">INTENT<em>® </em>for the Planet</h5>', unsafe_allow_html=True)
+st.markdown('<h5 class="logotype">INTENT<em>®</em><span style="color: black;"> for the Planet</span></h5>', unsafe_allow_html=True)
 
-st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
+st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p>', unsafe_allow_html=True)
 
 
-tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the Intents"])
+tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the INTENTs"])
 
 with tab1:
     with st.form(key='planet_care_form'):
@@ -105,7 +105,7 @@ with tab3:
 
 
 st.markdown("""
-<footer class="body" style="background: #f1f1f1; padding: 100px 0 50px 0;">
+<footer class="body" style="background: #f1f1f1; padding: 100px 5 25px 0;">
     <div class="inner" id="Contact">
         <div class="body">
             <h5 class="logotype">INTENT<em>®</em></h5>
