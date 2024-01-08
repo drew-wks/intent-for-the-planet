@@ -52,18 +52,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<span class="logotype">INTENT<em>®</em></span><span class="header h4-style" style="color: black;"> for the Planet</span>', unsafe_allow_html=True)
+st.markdown('<span class="logotype">INTENT<em>® </em></span><span class="header h4-style" style="color: black;"> for the Planet</span>', unsafe_allow_html=True)
 
 st.markdown("""
     <style>
         .h3-style {
-            font-size: 1.17em; /* Typical size of h3 */
+            font-size: 2.17em; /* Typical size of h3 */
             font-weight: bold; /* h3 is usually bold */
             /* Add other h3 styles if needed */
         }
 
         .h4-style {
-            font-size: 1em; /* Typical size of h4 */
+            font-size: 2em; /* Typical size of h4 */
             font-weight: bold; /* h4 is usually bold */
             /* Add other h4 styles if needed */
         }
