@@ -88,7 +88,7 @@ with tab1:
             "Who I care about": st.text_area("7. Who do you care about?").split('\\n'),
             "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?").split('\\n'),
             "What I need to do more of": st.text_area("9. What do I need to do more of?").split('\\n'),
-            "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n\\n'),
+            "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n','\\n'),
             "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
         }
         submitted = st.form_submit_button("Submit")
