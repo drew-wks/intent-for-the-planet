@@ -10,8 +10,6 @@ from pathlib import Path
 import os
 import base64
 
-parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, parent_dir)
 
 now_utc = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
