@@ -135,7 +135,7 @@ with tab2:
 
 with tab3:
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-    st.markdown('<p class="sub-header">Ask a question of the colection of INTENTs:</p>', unsafe_allow_html=True)
+    st.markdown('<span class="sub-header">Ask a question of the colection of INTENTs:</span>', unsafe_allow_html=True)
     question = st.text_input("")
     synthetic = st.checkbox('Include synthetic data')
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
