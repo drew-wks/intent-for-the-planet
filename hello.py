@@ -150,13 +150,13 @@ with tab3:
         if question:
             response = utils.query(question, response_file)
             st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True) 
-            st.markdown(f'<p class="sub-header">Response:</p><div class="body">{response}</div>', unsafe_allow_html=True)
+            st.markdown(f'<p class="header">Response:</p><div class="body">{response}</div>', unsafe_allow_html=True)
 
         else:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 
-    
+
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
 <footer style="background: #f1f1f1; padding: 60px 5px 25px 20px;">
