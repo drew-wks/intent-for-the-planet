@@ -30,6 +30,8 @@ st.markdown("""
 
 
 st.title("INTENT for the Planet")
+st.markdown('<h5 style="color: #e06332;">INTENT<em>®</em></h5>', unsafe_allow_html=True)
+
 st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
 
 
@@ -45,7 +47,7 @@ with tab1:
             "My activities": st.text_area("5. What are your daily activities?").split('\\n'),
             "My resources": st.text_area("6. What are your resources?").split('\\n'),
             "Who I care about": st.text_area("7. Who do you care about?").split('\\n'),
-            "How I cherish the planet": st.text_area("8. How do you cherish the planet?").split('\\n'),
+            "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?").split('\\n'),
             "What I need to do more of": st.text_area("9. What do I need to do more of?").split('\\n'),
             "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n'),
             "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
@@ -78,3 +80,26 @@ with tab3:
             st.write(response)
         else:
             st.write("Please enter a question.")
+
+
+st.markdown("""
+<footer style="background: #f1f1f1; padding: 100px 0 50px 0;">
+    <div class="inner" id="Contact">
+        <div class="address">
+            <h5>INTENT<em>®</em></h5>
+            <p>Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
+        </div>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/timothylarcombe/" target="_blank" title="LinkedIn">LinkedIn</a>
+            <a href="mailto:tim@intent.dk?subject=Newsletter" target="_blank" title="Sign up for newsletter">Sign up for newsletter</a>
+        </div>
+        <div class="numbers">
+            <a href="tel:004529997599" title="Call INTENT">(+45) 29 99 75 99</a>
+            <a href="mailto:tim@intent.dk" title="Email INTENT">tim@intent.dk</a>
+            <a href="http://www.intent.dk" title="Visit INTENT website">www.intent.dk</a>
+            CVR: 34944849
+        </div>
+        <p class="disclaimer"> INTENT<sup>&reg;</sup>, Most Valuable Problem<sup>&reg;</sup>, Shared Why&trade;, Success DNA&trade; & Real Team&trade; are trademarks of <span>INTENT<em>®</em></span></span>
+    </div>
+</footer>
+""", unsafe_allow_html=True)

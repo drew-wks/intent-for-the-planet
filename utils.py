@@ -66,15 +66,15 @@ def query(question, response_file):
 
     messages =  [  
         {'role':'system', 
-        'content': "You are a helpful assistant. Try to answer the users question based on the info in the INTENTs provided. You can supplement your response information with your own information, but if you do please let user know what information you suuplemented. If you don't know the answer to something, just say I don't know."},    
+        'content': "You are a helpful assistant. Try to answer the users question based on the info in the INTENTs provided. You can supplement your response with your own information, but if you do please let user know what information you added. If you don't know the answer to something, just say I don't know."},    
         {'role':'user', 
         'content': f"""{question}```{data}```"""}  
     ] 
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k", 
+        model="gpt-3.5-turbo-16k",  #gpt-4
         messages=messages,
-        temperature=0.8, 
+        temperature=0.8, # 0-2. Controls response randomness vs determinism. Higher is more random 
         max_tokens=8000,
     )
     return response.choices[0].message["content"]
