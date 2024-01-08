@@ -108,6 +108,6 @@ st.markdown("""
 <footer style="background: #f1f1f1; padding: 75px 5px 25px 15px;">
     <h5 class="logotype">INTENT<em>®</em></h5>
     <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
-    <p class="logotype">INTENT<em>®</em><span class="body" style="font "color: #000000;"> is a trademark of <a href="http://www.intent.dk" title="INTENT">INTENT</a> CVR: 34944849</span></p>
+    <p class="logotype">INTENT<em>®</em><span class="body" style="color: #000000;"> is a trademark of <a href="http://www.intent.dk" title="INTENT">INTENT</a> CVR: 34944849</span></p>
 </footer>
 """, unsafe_allow_html=True)
