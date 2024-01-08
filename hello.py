@@ -52,7 +52,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<h3 span class="logotype">INTENT<em>® </em></span><span class="header" style="color: black;"> for the Planet</span></h3>', unsafe_allow_html=True)
 
 st.markdown("""
     <style>
