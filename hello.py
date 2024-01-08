@@ -149,8 +149,8 @@ with tab3:
     if st.button("Submit", type="primary"):
         if question:
             response = utils.query(question, response_file)
-            st.markdown('<p class="sub-header">Response:</p><br>', unsafe_allow_html=True)
-            st.write(response)
+            st.markdown(f'<p class="sub-header">Response:</p><div class="body">{response}</div>', unsafe_allow_html=True)
+
         else:
             st.write("Please enter a question.")
 
