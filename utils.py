@@ -11,7 +11,7 @@ import os
 import base64
 
 
-responses_dir = "responses"
+responses_dir = "responses_test"
 now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 filename = os.path.join(responses_dir, f"response_{now_utc}.json")
 
@@ -51,8 +51,6 @@ def save_responses(user_responses):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
-user_responses = {"example": "response"}
-save_responses(user_responses)
 
 
 def read_markdown_file(markdown_file):
