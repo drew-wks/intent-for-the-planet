@@ -15,7 +15,7 @@ st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="co
 
 
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
-hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: hidden;}header {visibility: visible;}</style>"
+hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visible;}header {visibility: visible;}</style>"
 st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown("""
         <style>
