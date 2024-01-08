@@ -97,7 +97,7 @@ with tab1:
     with form_container:
         with st.form(key='intent_responses'):
             user_responses = {
-                "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
+                "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
                 "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?",placeholder="You can put more than one idea down.", help="Reflect on the things you do to support your physical well-being.").split('\\n'),
                 "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?",placeholder="You can put more than one idea down.", help="Think about activities and practices that contribute to your mental health. What are the things you do that give you mental peace?").split('\\n'),
