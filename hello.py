@@ -66,7 +66,8 @@ st.markdown("""
             font-weight: bold; /* h4 is usually bold */
         }
     </style>
-    <span class="logotype h3-style">INTENT<sup>®</sup> </span>
+    <span class="logotype h3-style">INTENT</span>
+    <span class="header h4-style" style="color: #e06332;"><sup>® </sup></span>
     <span class="header h4-style" style="color: black;">® for the Planet</span>
 """, unsafe_allow_html=True)
 
