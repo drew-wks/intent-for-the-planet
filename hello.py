@@ -29,13 +29,12 @@ st.markdown("""
         """, unsafe_allow_html=True)
 
 
-st.title("INTENT for the Planet")
-st.markdown('<h5 style="color: #e06332;">INTENT<em>®</em></h5>', unsafe_allow_html=True)
+st.markdown('<h5 style="color: #e06332;">INTENT<em>® </em>for the Planet</h5>', unsafe_allow_html=True)
 
 st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
 
 
-tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Explore the Intents"])
+tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the Intents"])
 
 with tab1:
     with st.form(key='planet_care_form'):
