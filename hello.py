@@ -146,7 +146,7 @@ with tab3:
     synthetic = st.checkbox('Include synthetic data')
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
 
-    if st.button("Submit"):
+    if st.button("Submit", type="primary"):
         if question:
             response = utils.query(question, response_file)
             st.markdown('<p class="sub-header">Response:</p><br>', unsafe_allow_html=True)
