@@ -163,7 +163,7 @@ with tab4:
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
-<footer style="background: #f1f1f1; padding: 60px 5px 13px 20px;">
+<footer style="background: #f1f1f1; padding: 60px 7px 13px 20px;">
     <h5 class="logotype">INTENT<em>®</em></h5>
     <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
     <br>
