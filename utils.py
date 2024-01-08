@@ -66,7 +66,7 @@ def query(question, response_file):
 
     messages =  [  
         {'role':'system', 
-        'content': "You are a helpful assistant. Try to answer the users question based on the info in the json provided"},    
+        'content': "You are a helpful assistant. Try to answer the users question based on the info in the json provided. YOu can add information beyond the json as long as you let user know the inforamtion did not come from the json"},    
         {'role':'user', 
         'content': f"""{question}```{data}```"""}  
     ] 
