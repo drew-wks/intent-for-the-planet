@@ -17,19 +17,42 @@ st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="co
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
 hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visible;}header {visibility: visible;}</style>"
 st.markdown(hide_st_style, unsafe_allow_html=True)
+# Custom styles
 st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 1rem;
-                    padding-bottom: 1rem;
-                    padding-left: 3rem;
-                    padding-right: 3rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;500&display=swap');
+
+        .logotype {
+            font-family: Courier;
+            color: #e06332;
+        }
+
+        .body {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 300;
+        }
+
+        .header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Other styles */
+        [data-testid="collapsedControl"] { display: none; }
+        #MainMenu { visibility: hidden; }
+        footer { visibility: visible; }
+        header { visibility: visible; }
+        .block-container {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 
-st.markdown('<h5 style="color: #e06332; font-family: Courier;">INTENT<em>® </em>for the Planet</h5>', unsafe_allow_html=True)
+st.markdown('<h5 class="logotype">INTENT<em>® </em>for the Planet</h5>', unsafe_allow_html=True)
 
 st.markdown(f"The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.")
 
@@ -82,10 +105,10 @@ with tab3:
 
 
 st.markdown("""
-<footer style="background: #f1f1f1; padding: 100px 0 50px 0;">
+<footer class="body" style="background: #f1f1f1; padding: 100px 0 50px 0;">
     <div class="inner" id="Contact">
         <div class="address">
-            <h5>INTENT<em>®</em></h5>
+            <h5 class="logotype">INTENT<em>®</em></h5>
             <p>Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
         </div>
         <div class="links">
