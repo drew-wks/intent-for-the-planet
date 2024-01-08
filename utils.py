@@ -51,7 +51,7 @@ def read_markdown_file(markdown_file):
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-def query(question):
+def query(question, response_file):
     with open(response_file) as f:
         data = json.load(f)
 

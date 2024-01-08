@@ -73,7 +73,7 @@ with tab3:
 
     if st.button("Submit"):
         if question:
-            response = utils.query(question)
+            response = utils.query(question, response_file)
             st.write(response)
         else:
             st.write("Please enter a question.")
