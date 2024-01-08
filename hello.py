@@ -57,7 +57,7 @@ st.markdown('<h3 span class="logotype">INTENT<em>® </em></span><span class="hea
 st.markdown("""
     <style>
         .h3-style {
-            font-size: 2.55em; /* Typical size of h3 */
+            font-size: 2.52em; /* Typical size of h3 */
             font-weight: bold; /* h3 is usually bold */
         }
 
