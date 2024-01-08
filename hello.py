@@ -128,6 +128,7 @@ with tab3:
             st.write("Please enter a question.")
 
 st.markdown("")
+st.markdown("")
 st.markdown("""
 <footer style="background: #f1f1f1; padding: 60px 5px 25px 20px;">
     <h5 class="logotype">INTENT<em>®</em></h5>
