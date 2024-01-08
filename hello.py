@@ -110,11 +110,22 @@ with tab1:
     if submitted:
         st.success("Thank you for contributing your Intent for the planet!")
         st.balloons()
+        file_content = ""
         for key, values in st.session_state['user_responses'].items():
             st.markdown(f"**{key}**:")
+            file_content += f"{key}:\n"  # Add key to the file content
             for value in values:
                 st.markdown(f"*{value}*")
+                file_content += f"- {value}\n"  # Add value to the file content
+            file_content += "\n"  # Add a newline for spacing between sections
 
+        # Create a download button
+        st.download_button(
+            label="Download Responses as Text",
+            data=file_content,
+            file_name=f"my_IFTP_{utils.now_utc}.txt",
+            mime="text/plain"
+        )
 
 
 with tab2:
