@@ -109,7 +109,7 @@ st.markdown("""
     <div class="inner" id="Contact">
         <div class="address">
             <h5 class="logotype">INTENT<em>®</em></h5>
-            <p>Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
+            <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
         </div>
         <div class="links">
             <a href="https://www.linkedin.com/in/timothylarcombe/" target="_blank" title="LinkedIn">LinkedIn</a>
@@ -121,7 +121,7 @@ st.markdown("""
             <a href="http://www.intent.dk" title="Visit INTENT website">www.intent.dk</a>
             CVR: 34944849
         </div>
-        <p class="disclaimer"> INTENT<sup>&reg;</sup>, Most Valuable Problem<sup>&reg;</sup>, Shared Why&trade;, Success DNA&trade; & Real Team&trade; are trademarks of <span>INTENT<em>®</em></span></span>
+        <p class="disclaimer"> INTENT<sup>&reg;</sup> is a trademark of <span>INTENT<em>®</em></span></span>
     </div>
 </footer>
 """, unsafe_allow_html=True)
