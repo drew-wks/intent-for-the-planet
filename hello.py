@@ -36,18 +36,6 @@ st.markdown("""
             font-family: 'Lexend', sans-serif;
             font-weight: 500;
         }
-        
-        .h3-style {
-            font-size: 1.17em; /* Typical size of h3 */
-            font-weight: bold; /* h3 is usually bold */
-            /* Add other h3 styles if needed */
-        }
-
-        .h4-style {
-            font-size: 1em; /* Typical size of h4 */
-            font-weight: bold; /* h4 is usually bold */
-            /* Add other h4 styles if needed */
-        }
 
         /* Other styles */
         [data-testid="collapsedControl"] { display: none; }
@@ -68,15 +56,22 @@ st.markdown('<span class="logotype">INTENT<em>®</em></span><span class="header 
 
 st.markdown("""
     <style>
-        .inline-heading {
-            display: inline-block;
-            margin-right: 5px; /* Adjusts spacing between the elements */
-            vertical-align: top; /* Aligns the elements at the top */
+        .h3-style {
+            font-size: 1.17em; /* Typical size of h3 */
+            font-weight: bold; /* h3 is usually bold */
+            /* Add other h3 styles if needed */
+        }
+
+        .h4-style {
+            font-size: 1em; /* Typical size of h4 */
+            font-weight: bold; /* h4 is usually bold */
+            /* Add other h4 styles if needed */
         }
     </style>
-    <h3 class="logotype inline-heading">INTENT<em>®</em></h3>
-    <h4 class="header inline-heading" style="color: black;">for the Planet</h4>
+    <span class="logotype h3-style">INTENT<em>®</em></span>
+    <span class="header h4-style" style="color: black;"> for the Planet</span>
 """, unsafe_allow_html=True)
+
 
 st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
