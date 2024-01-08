@@ -20,7 +20,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 # Custom styles
 st.markdown("""
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
 
         .logotype {
             font-family: Courier;
@@ -149,6 +149,7 @@ with tab3:
     if st.button("Submit", type="primary"):
         if question:
             response = utils.query(question, response_file)
+            st.markdown("")
             st.markdown(f'<p class="sub-header">Response:</p><div class="body">{response}</div>', unsafe_allow_html=True)
 
         else:
