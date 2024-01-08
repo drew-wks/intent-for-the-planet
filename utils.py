@@ -13,11 +13,12 @@ import base64
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
 
+now_utc = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 # Function to save responses to a JSON file matching the given schema
-def save_responses(responses_content):
+def save_responses(user_responses):
     # Define the filename
-    filename = "responses/responses.json"
+    filename = "responses/response_{now_utc}.json"
     
     # Create a response dictionary matching the schema
     response = {
@@ -28,7 +29,7 @@ def save_responses(responses_content):
             "p_id": "",
             "schema": "1",
             "version": "1",
-            "date": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "date": now_utc,
         },
         "response": user_responses
     }
