@@ -36,6 +36,11 @@ st.markdown("""
             font-weight: 300;
         }
 
+        .sub-header {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 400;
+        }
+
         .header {
             font-family: 'Lexend', sans-serif;
             font-weight: 500;
@@ -75,7 +80,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<p class="header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
+st.markdown('<p class="sub-header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
 tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Facilitator's Guide", "Explore the INTENTs"])
