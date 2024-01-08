@@ -46,9 +46,11 @@ st.markdown("""
             font-weight: 500;
         }
             
-        .tight-margin {
-            margin-bottom: 5px; /* Reduce the bottom margin */
+        /* Custom style to reduce vertical space */
+        .markdown-text-container {
+            margin-bottom: 5px !important;
         }
+
 
         /* Other styles */
         [data-testid="collapsedControl"] { display: none; }
@@ -139,7 +141,7 @@ with tab2:
 
 with tab3:
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-    st.markdown('<span class="sub-header tight-margin">Ask a question of the collection of INTENTs:</span>', unsafe_allow_html=True)
+    st.markdown('<span class="sub-header markdown-text-container">Ask a question of the collection of INTENTs:</span>', unsafe_allow_html=True)
     question = st.text_input("")
     synthetic = st.checkbox('Include synthetic data')
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
