@@ -94,6 +94,7 @@ tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Facilitator's Guide", "Ex
 with tab1:
     form_container = st.empty()
     with form_container:
+        st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
         with st.form(key='intent_responses'):
             user_responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
