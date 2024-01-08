@@ -27,6 +27,10 @@ st.markdown("""
             color: #e06332;
         }
 
+        .doc-style {
+            font-family: 'Lexend', sans-serif;
+        }
+
         .body {
             font-family: 'Lexend', sans-serif;
             font-weight: 300;
@@ -106,8 +110,7 @@ with tab1:
 
 with tab2:
     doc = utils.read_markdown_file("moderation_guidance.md")
-    st.markdown(doc, unsafe_allow_html=True)
-    # st.markdown("This is a process to align our well-being with that of the planet:")
+    st.markdown(f"<div class='doc-style'>{doc}</div>", unsafe_allow_html=True)
 
 
 with tab3:
