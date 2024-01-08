@@ -1,12 +1,11 @@
 import streamlit as st
-import json
+import utils
 import os
 from datetime import datetime
 import uuid
 import sys
 import pandas as pd
 from pathlib import Path
-import os
 import base64
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,13 +53,14 @@ with tab1:
         }
         submitted = st.form_submit_button("Submit")
         if submitted:
-            save_responses(submitted)
+            utils.save_responses(submitted)
             st.success("Thank you for your responses!")
-            st.markdown(submitted)
+            for key, value in responses.items():
+                st.write(f"{key}: {value}")
 
 
 with tab2:
-    doc = read_markdown_file("moderation_guidance.md")
+    doc = utils.read_markdown_file("moderation_guidance.md")
     st.markdown(doc, unsafe_allow_html=True)
     # st.markdown("This is a process to align our well-being with that of the planet:")
 
@@ -73,7 +73,7 @@ with tab3:
 
     if st.button("Submit"):
         if question:
-            response = query(question)
+            response = utils.query(question)
             st.write(response)
         else:
             st.write("Please enter a question.")
