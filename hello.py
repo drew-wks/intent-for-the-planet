@@ -78,7 +78,7 @@ st.markdown("""
 st.markdown('<p class="header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
-tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the INTENTs"])
+tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Facilitator's Guide", "Explore the INTENTs"])
 
 with tab1:
     form_container = st.empty()
@@ -109,7 +109,7 @@ with tab1:
 
 
 with tab2:
-    doc = utils.read_markdown_file("moderation_guidance.md")
+    doc = utils.read_markdown_file("facilitation_guide.md")
     st.markdown(doc, unsafe_allow_html=True)
 
 

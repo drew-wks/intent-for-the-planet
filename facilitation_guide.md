@@ -7,7 +7,7 @@ By caring for my mental and physical well-being,
 And using my outer and inner resources in my activities,
 To cherish the planet and all who dwell here.
 
-**Preparation for participant**
+**Preparation for respondant**
 
 1. **Mindset**: Enter the session with an open mind and a focus on internal reflection.
 Make sure that you will be undisturbed for the duration of the session, which will last
