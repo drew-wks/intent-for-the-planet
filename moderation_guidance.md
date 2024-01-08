@@ -103,4 +103,4 @@ a broader impact on the planet and its inhabitants.
 - Documenting the session visually can be helpful for further reflection and action
 planning.
 
-<br><br>
+<br>

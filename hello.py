@@ -71,7 +71,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown('<p class="body">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
+st.markdown('<p class="header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
 tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the INTENTs"])
@@ -125,7 +125,7 @@ with tab3:
 
 
 st.markdown("""
-<footer style="background: #f1f1f1; padding: 75px 5px 25px 15px;">
+<footer style="background: #f1f1f1; padding: 70px 5px 25px 20px;">
     <h5 class="logotype">INTENT<em>®</em></h5>
     <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
     <p class="logotype">INTENT<em>®</em><span class="body" style="color: #000000;"> is a trademark of <a href="http://www.intent.dk" title="INTENT">INTENT</a> CVR: 34944849</span></p>
