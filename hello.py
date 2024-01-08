@@ -105,7 +105,7 @@ with tab3:
 
 
 st.markdown("""
-<footer class="body" style="background: #f1f1f1; padding: 75px 5px 25px 5px;">
+<footer class="body" style="background: #f1f1f1; padding: 75px 5px 25px 15px;">
     <div class="inner" id="Contact">
         <div class="body">
             <h5 class="logotype">INTENT<em>®</em></h5>
