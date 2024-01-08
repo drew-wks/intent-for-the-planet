@@ -114,7 +114,7 @@ with tab2:
 
 
 with tab3:
-    st.markdown("\n")
+    st.markdown("\n\n")
     question = st.text_input("Ask a question of the colection of INTENTs:")
     synthetic = st.checkbox('Include synthetic data')
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
