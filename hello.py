@@ -109,7 +109,7 @@ with tab1:
                 "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n'),
                 "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
             }
-            submitted = st.form_submit_button("Submit")
+            submitted = st.form_submit_button("Submit", type="primary")
         if submitted:
             #utils.save_responses(user_responses)
             st.session_state['user_responses'] = user_responses
