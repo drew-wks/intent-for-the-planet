@@ -77,22 +77,25 @@ st.markdown('<p class="body">The intent of the session is to encourage introspec
 tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Moderator's Guide", "Explore the INTENTs"])
 
 with tab1:
-    with st.form(key='planet_care_form'):
-        user_responses = {
-            "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
-            "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
-            "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
-            "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
-            "My activities": st.text_area("5. What are your daily activities?").split('\\n'),
-            "My resources": st.text_area("6. What are your resources?").split('\\n'),
-            "Who I care about": st.text_area("7. Who do you care about?").split('\\n'),
-            "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?").split('\\n'),
-            "What I need to do more of": st.text_area("9. What do I need to do more of?").split('\\n'),
-            "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n'),
-            "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
-        }
-        submitted = st.form_submit_button("Submit")
+    form_container = st.empty()
+    with form_container:
+        with st.form(key='intent_responses'):
+            user_responses = {
+                "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
+                "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
+                "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
+                "How I care for my mental well-being": st.text_area("4. How do you care for your mental well-being?").split('\\n'),
+                "My activities": st.text_area("5. What are your daily activities?").split('\\n'),
+                "My resources": st.text_area("6. What are your resources?").split('\\n'),
+                "Who I care about": st.text_area("7. Who do you care about?").split('\\n'),
+                "How I cherish the planet": st.text_area("8. How do you cherish the planet and those who dwell here?").split('\\n'),
+                "What I need to do more of": st.text_area("9. What do I need to do more of?").split('\\n'),
+                "What I need to do less of": st.text_area("10. What do I need to do less of?").split('\\n'),
+                "My Intent For the Planet": st.text_area("11. Your intent for the planet:").split('\\n')
+            }
+            submitted = st.form_submit_button("Submit")
         if submitted:
+            form_container.empty()
             utils.save_responses(user_responses)
             st.success("Thank you for your responses!")
             for key, values in user_responses.items():
