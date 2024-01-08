@@ -54,12 +54,10 @@ with tab1:
         if submitted:
             utils.save_responses(user_responses)
             st.success("Thank you for your responses!")
-            for key, value in user_responses.items():
+            for key, values in user_responses.items():
                 st.markdown(f"**{key}**:")
-                lines = value.split('\n')
-                for line in lines:
-                    st.text(line)
-
+                for value in values:
+                    st.text(value)
 
 
 with tab2:
