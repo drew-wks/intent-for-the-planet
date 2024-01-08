@@ -92,7 +92,7 @@ st.markdown('<p class="sub-header">The intent of the session is to encourage int
 tab1, tab2, tab3 = st.tabs(["Contribute your INTENT", "Facilitator's Guide", "Explore the INTENTs"])
 
 with tab1:
-    st.markdown('<div style="margin-top: 20px;"></div>', unsafe_allow_html=True)
+    st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
         with st.form(key='intent_responses'):
