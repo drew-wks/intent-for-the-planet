@@ -56,7 +56,7 @@ with tab1:
             utils.save_responses(user_responses)
             st.success("Thank you for your responses!")
             for key, value in user_responses.items():
-                st.markdown(f"{key}:\n {value}")
+                st.markdown(f"{key}:\n\n  {value}")
 
 
 with tab2:
