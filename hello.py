@@ -112,13 +112,18 @@ with tab2:
                 "What I need to do less of": st.text_area("10. What do I need to do less of?",placeholder="You can put more than one idea down.", help="Reflecting on your life at the moment, what would benefit you to do less of?").split('\\n'),
                 "My Intent For the Planet": st.text_area("11. Your intent for the planet:",placeholder="This is a creative process. Don't think too hard about it. Just write down whatever comes to mind.", help="Use the insights from the session to draft a statement of intent for the planet, rreflecting on your personal values, goals, and the ways you wish to contribute positively. Use the individual template 'INTENT for the planet' as a kind of guide for your own personal vision").split('\\n')
             }
+            consent_given = st.toggle("I consent to these responses being saved and used for analysis.", value=False)
             submitted = st.form_submit_button("Submit", type="primary")
+            if submitted and not consent_given:
+                st.error("You must consent to proceed.")
+                submitted = False 
+                
         if submitted:
             #utils.save_responses(user_responses)
             st.session_state['user_responses'] = user_responses
             form_container.empty()
     if submitted:
-        st.success("Thank you for contributing your Intent for the planet!")
+        st.success("Thank you for contributing this Intent for the planet!")
         st.balloons()
         file_content = ""
         for key, values in st.session_state['user_responses'].items():
