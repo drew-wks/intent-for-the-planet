@@ -30,7 +30,7 @@ def save_responses(responses_content):
             "version": "1",
             "date": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
         },
-        "response": responses
+        "response": user_responses
     }
     
     # Check if the file exists

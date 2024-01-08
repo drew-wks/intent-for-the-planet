@@ -53,7 +53,7 @@ with tab1:
         }
         submitted = st.form_submit_button("Submit")
         if submitted:
-            utils.save_responses(user_response)
+            utils.save_responses(user_responses)
             st.success("Thank you for your responses!")
             for key, value in user_responses.items():
                 st.write(f"{key}: {value}")
