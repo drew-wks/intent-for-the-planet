@@ -114,8 +114,8 @@ with tab2:
 
 
 with tab3:
-    st.markdown("Query the Repository", unsafe_allow_html=True)
-    question = st.text_input("Ask a question:")
+    st.markdown("")
+    question = st.text_input("Ask a question of the colection of INTENTs:")
     synthetic = st.checkbox('Include synthetic data')
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
 
@@ -126,9 +126,9 @@ with tab3:
         else:
             st.write("Please enter a question.")
 
-
+st.markdown("")
 st.markdown("""
-<footer style="background: #f1f1f1; padding: 70px 5px 25px 20px;">
+<footer style="background: #f1f1f1; padding: 60px 5px 25px 20px;">
     <h5 class="logotype">INTENT<em>®</em></h5>
     <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
     <p class="logotype">INTENT<em>®</em><span class="body" style="color: #000000;"> is a trademark of <a href="http://www.intent.dk" title="INTENT">INTENT</a> CVR: 34944849</span></p>
