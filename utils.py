@@ -11,7 +11,9 @@ import os
 import base64
 
 
-now_utc = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+responses_dir = "responses"
+now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+filename = os.path.join(responses_dir, f"response_{now_utc}.json")
 
 # Function to save responses to a JSON file matching the given schema
 def save_responses(user_responses):
@@ -32,6 +34,10 @@ def save_responses(user_responses):
         "response": user_responses
     }
     
+   # Check if the responses directory exists; if not, create it
+    if not os.path.exists(responses_dir):
+        os.makedirs(responses_dir)
+    
     # Check if the file exists
     if os.path.exists(filename):
         # If the file exists, load the existing data and append the new response
@@ -40,6 +46,8 @@ def save_responses(user_responses):
         data.append(full_response_record)
     else:
         data = [full_response_record]
+    
+    # Save the data to the file
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
