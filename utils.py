@@ -66,7 +66,7 @@ def query(question, response_file):
 
     messages =  [  
         {'role':'system', 
-        'content': "You are a helpful assistant. Try to answer the users question based on the info in the INTENTs provided. YOu can add information beyond the INTENTs as long as you let user know the information did not come from the INTENTs. If you don't know the answer to something, just say I don't know."},    
+        'content': "You are a helpful assistant. Try to answer the users question based on the info in the INTENTs provided. You can supplement your response information with your own information, but if you do please let user know what information you suuplemented. If you don't know the answer to something, just say I don't know."},    
         {'role':'user', 
         'content': f"""{question}```{data}```"""}  
     ] 
