@@ -51,6 +51,9 @@ def save_responses(user_responses):
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
 
+user_responses = {"example": "response"}
+save_responses(user_responses)
+
 
 def read_markdown_file(markdown_file):
    return Path(markdown_file).read_text()
