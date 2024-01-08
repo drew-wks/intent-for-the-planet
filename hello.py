@@ -38,7 +38,7 @@ tab1, tab2, tab3 = st.tabs(["Contribute your Intent", "Moderator's Guide", "Expl
 
 with tab1:
     with st.form(key='planet_care_form'):
-        responses = {
+        user_responses = {
             "My world": st.text_area("1. What is your world?", placeholder="Just write down what comes to mind.", help="Reflect on what constitutes 'your world.' When you think of 'your world' what comes to mind? What is it that you can influence?"),
             "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet."),
             "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?").split('\\n'),
@@ -53,9 +53,9 @@ with tab1:
         }
         submitted = st.form_submit_button("Submit")
         if submitted:
-            utils.save_responses(submitted)
+            utils.save_responses(user_response)
             st.success("Thank you for your responses!")
-            for key, value in responses.items():
+            for key, value in user_responses.items():
                 st.write(f"{key}: {value}")
 
 
