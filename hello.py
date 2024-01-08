@@ -107,21 +107,19 @@ with tab3:
 st.markdown("""
 <footer class="body" style="background: #f1f1f1; padding: 100px 0 50px 0;">
     <div class="inner" id="Contact">
-        <div class="address">
+        <div class="body">
             <h5 class="logotype">INTENT<em>®</em></h5>
             <p class="body">Wesselsgade 15 B, st. th.<br />2200 København N<br />Denmark</p>
         </div>
-        <div class="links">
-            <a href="https://www.linkedin.com/in/timothylarcombe/" target="_blank" title="LinkedIn">LinkedIn</a>
+        <div class="body">
             <a href="mailto:tim@intent.dk?subject=Newsletter" target="_blank" title="Sign up for newsletter">Sign up for newsletter</a>
         </div>
-        <div class="numbers">
+        <div class="body">
             <a href="tel:004529997599" title="Call INTENT">(+45) 29 99 75 99</a>
             <a href="mailto:tim@intent.dk" title="Email INTENT">tim@intent.dk</a>
-            <a href="http://www.intent.dk" title="Visit INTENT website">www.intent.dk</a>
             CVR: 34944849
         </div>
-        <p class="disclaimer"> INTENT<sup>&reg;</sup> is a trademark of <span>INTENT<em>®</em></span></span>
+        <p class="body"> INTENT<sup>&reg;</sup> is a trademark of <span><a href="http://www.intent.dk" title="INTENT">INTENT<em>®</em></a></span></span>
     </div>
 </footer>
 """, unsafe_allow_html=True)
