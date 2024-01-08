@@ -44,7 +44,6 @@ def save_responses(user_responses):
         data = [response]
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
-    return responses
 
 
 def read_markdown_file(markdown_file):
