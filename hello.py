@@ -104,13 +104,15 @@ with tab1:
             }
             submitted = st.form_submit_button("Submit")
         if submitted:
-            utils.save_responses(user_responses)
+            #utils.save_responses(user_responses)
+            st.session_state['user_responses'] = user_responses
+            form_container.empty()
             st.success("Thank you for your responses!")
-            for key, values in user_responses.items():
+            for key, values in st.session_state['user_responses'].items():
                 st.markdown(f"**{key}**:")
                 for value in values:
                     st.markdown(f"*{value}*")
-            form_container.empty()
+
 
 
 with tab2:
