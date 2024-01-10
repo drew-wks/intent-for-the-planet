@@ -2,6 +2,7 @@ import streamlit as st
 import utils
 import os
 import sys
+from streamlit_extras.let_it_rain import rain
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
@@ -57,8 +58,7 @@ with tab2:
             st.session_state['responses'] = responses
             form_container.empty()
     if submitted:
-        st.success("Thank you for contributing this Intent for the planet!")
-        st.balloons()
+        rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
         file_content = ""
         for key, values in st.session_state['responses'].items():
             st.markdown(f"**{key}**:")
@@ -67,6 +67,7 @@ with tab2:
                 st.markdown(f"*{value}*")
                 file_content += f"- {value}\n"  # Add value to the file content
             file_content += "\n"  # Add a newline for spacing between sections
+        st.success("Thank you for contributing this Intent for the planet!")
 
         # Create a download button
         st.download_button(
