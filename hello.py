@@ -24,7 +24,7 @@ st.markdown("""
 st.markdown('<p class="sub-header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
-tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Contribute an INTENT", "Facilitator's Guide", "Refine an INTENT", "Explore the INTENTs"])
+tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Facilitator's Guide", "Contribute an INTENT", "Refine an INTENT", "Explore the INTENTs"])
 
 with tab1:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
