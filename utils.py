@@ -8,28 +8,18 @@ import openai
 from pathlib import Path
 
 
-responses_dir = "responses_test"
-now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-filename = os.path.join(responses_dir, f"response_{now_utc}.json")
+api_key = st.secrets.QDRANT_2_API_KEY
+url = st.secrets.QDRANT_2_URL
 
-# Function to save responses to a JSON file matching the given schema
-def save_responses(responses):
-    # Define the filename
-    filename = f"responses/response_{now_utc}.json"
-    
-    # Create a response dictionary matching the schema
-    entity = {
-        "id": str(uuid.uuid4()),
-        "metadata": {
-            "p_num": "",
-            "p_haplotype": "",
-            "p_id": "",
-            "schema": "1",
-            "version": "1",
-            "date": now_utc,
-        },
-        "response": responses
-    }
+client = QdrantClient(url,
+                      prefer_grpc=True,
+                      api_key=api_key,
+                      )
+
+
+now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
     
    # Check if the responses directory exists; if not, create it
     if not os.path.exists(responses_dir):
@@ -55,6 +45,7 @@ def read_markdown_file(markdown_file):
 
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 
 def query(question, response_file):
     with open(response_file) as f:
