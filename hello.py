@@ -70,6 +70,7 @@ with tab3:
             try:
                 responses_obj = Responses(**responses_data)
                 session = Session(facilitator=facilitator_number, responses=responses_obj)
+                st.session_state['session'] = session
                 st.success(f"Session and Responses captured successfully: {session.json()}")
             except ValueError as e:
                 st.error(f"Invalid input: {e}")
@@ -88,7 +89,7 @@ with tab3:
                 file_content += f"- {value}\n"  # Add value to the file content
             file_content += "\n"  # Add a newline for spacing between sections
         st.success("Thank you for contributing this Intent for the planet!")
-        st.json(session.json())
+        st.json(st.session_state['session'].json())
 
         # Create a download button
         st.download_button(
