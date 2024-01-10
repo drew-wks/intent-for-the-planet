@@ -1,7 +1,6 @@
 from typing import List, Dict, Tuple, Union, Optional
 from pydantic import BaseModel, Field, field_validator, constr
 import uuid
-import re
 from datetime import datetime
 
 
