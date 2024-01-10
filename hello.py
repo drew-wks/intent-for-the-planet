@@ -45,7 +45,7 @@ with tab3:
     with form_container:
         with st.form(key='responses_form'):
             facilitator = st.number_input('Facilitator: Enter your creation number', step=1)
-            responses = {
+            form_responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
                 "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?",placeholder="You can put more than one idea down.", help="Reflect on the things you do to support your physical well-being.").split('\\n'),
@@ -65,7 +65,7 @@ with tab3:
                 submitted = False 
 
         if submitted:
-            responses = Responses(**responses)
+            responses = Responses(**form_responses)
             session = Session(facilitator=facilitator, responses=responses)
             st.session_state['session'] = session
             form_container.empty()
