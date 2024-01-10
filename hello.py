@@ -12,7 +12,7 @@ sys.path.insert(0, parent_dir)
 
 with open("custom_styles.css", "r") as f:
     css_content = f.read()
-
+st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
