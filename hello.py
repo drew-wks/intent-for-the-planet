@@ -86,12 +86,12 @@ with tab3:
         st.json(st.session_state['session'].json())
 
         # Create a download button
-        st.download_button(
-            label="Download Responses as Text",
-            data=file_content,
-            file_name=f"my_IFTP_{utils.now_utc}.txt",
-            mime="text/plain"
-        )
+        #st.download_button(
+        #    label="Download Responses as Text",
+        #    data=file_content,
+        #    file_name=f"my_IFTP_{utils.now_utc}.txt",
+        #    mime="text/plain"
+        # )
 
 
 with tab4:
