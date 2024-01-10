@@ -19,7 +19,7 @@ class Responses(BaseModel):
         description="Response for '5. What are your activities?'")
     my_resources: List[str] = Field(
         description="Response for '6. What are your resources?'")
-    who_care: List[str] = Field(
+    care_who: List[str] = Field(
         description="Response for '7. Who do you care about?'")
     how_cherish: List[str] = Field(
         description="Response for '8. How do you cherish the planet?'")
