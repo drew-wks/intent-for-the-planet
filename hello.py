@@ -65,17 +65,9 @@ with tab3:
                 submitted = False 
 
         if submitted:
-            st.session_state['responses'] = responses
-            st.session_state['facilitator'] = facilitator
-            try:
-                responses_obj = Responses(**responses_data)
-                session = Session(facilitator=facilitator_number, responses=responses_obj)
-                st.session_state['session'] = session
-                st.success(f"Session and Responses captured successfully: {session.json()}")
-            except ValueError as e:
-                st.error(f"Invalid input: {e}")
-            except Exception as e:
-                st.error(f"An error occurred: {e}")
+            responses_obj = Responses(**responses_data)
+            session = Session(facilitator=facilitator_number, responses=responses_obj)
+            st.session_state['session'] = session
             form_container.empty()
     
     if submitted:
