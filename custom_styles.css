@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+.logotype {
+    font-family: Courier;
+    color: #e06332;
+}
+
+.doc-style {
+    font-family: 'Lexend', sans-serif;
+}
+
+.body {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+}
+
+.sub-header {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+}
+
+.header {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 500;
+}
+    
+/* Custom style to reduce vertical space. overrides any other styles */
+.markdown-text-container {
+    margin-bottom: 5px !important;
+}
+
+
+/* Other styles */
+[data-testid="collapsedControl"] { display: none; }
+#MainMenu { visibility: hidden; }
+footer { visibility: visible; }
+header { visibility: visible; }
+.block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}

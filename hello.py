@@ -10,6 +10,9 @@ import base64
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
 
+with open("custom_styles.css", "r") as f:
+    css_content = f.read()
+
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
@@ -19,51 +22,7 @@ hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visib
 st.markdown(hide_st_style, unsafe_allow_html=True)
 # Custom styles
 st.markdown("""
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
 
-        .logotype {
-            font-family: Courier;
-            color: #e06332;
-        }
-
-        .doc-style {
-            font-family: 'Lexend', sans-serif;
-        }
-
-        .body {
-            font-family: 'Lexend', sans-serif;
-            font-weight: 300;
-        }
-
-        .sub-header {
-            font-family: 'Lexend', sans-serif;
-            font-weight: 400;
-        }
-
-        .header {
-            font-family: 'Lexend', sans-serif;
-            font-weight: 500;
-        }
-            
-        /* Custom style to reduce vertical space */
-        .markdown-text-container {
-            margin-bottom: 5px !important;
-        }
-
-
-        /* Other styles */
-        [data-testid="collapsedControl"] { display: none; }
-        #MainMenu { visibility: hidden; }
-        footer { visibility: visible; }
-        header { visibility: visible; }
-        .block-container {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            padding-left: 3rem;
-            padding-right: 3rem;
-        }
-    </style>
 """, unsafe_allow_html=True)
 
 
