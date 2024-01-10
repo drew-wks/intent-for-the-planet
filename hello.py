@@ -1,11 +1,7 @@
 import streamlit as st
 import utils
 import os
-from datetime import datetime
 import sys
-import pandas as pd
-from pathlib import Path
-import base64
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
@@ -43,8 +39,8 @@ with tab2:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
-        with st.form(key='intent_responses'):
-            user_responses = {
+        with st.form(key='responses'):
+            responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
                 "How I care for my physical well-being": st.text_area("3. How do you care for your physical well-being?",placeholder="You can put more than one idea down.", help="Reflect on the things you do to support your physical well-being.").split('\\n'),
@@ -64,14 +60,14 @@ with tab2:
                 submitted = False 
 
         if submitted:
-            #utils.save_responses(user_responses)
-            st.session_state['user_responses'] = user_responses
+            #utils.save_responses(responses)
+            st.session_state['responses'] = responses
             form_container.empty()
     if submitted:
         st.success("Thank you for contributing this Intent for the planet!")
         st.balloons()
         file_content = ""
-        for key, values in st.session_state['user_responses'].items():
+        for key, values in st.session_state['responses'].items():
             st.markdown(f"**{key}**:")
             file_content += f"{key}:\n"  # Add key to the file content
             for value in values:

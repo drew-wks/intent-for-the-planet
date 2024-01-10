@@ -16,12 +16,12 @@ now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 filename = os.path.join(responses_dir, f"response_{now_utc}.json")
 
 # Function to save responses to a JSON file matching the given schema
-def save_responses(user_responses):
+def save_responses(responses):
     # Define the filename
     filename = f"responses/response_{now_utc}.json"
     
     # Create a response dictionary matching the schema
-    full_response_record = {
+    entity = {
         "id": str(uuid.uuid4()),
         "metadata": {
             "p_num": "",
@@ -31,7 +31,7 @@ def save_responses(user_responses):
             "version": "1",
             "date": now_utc,
         },
-        "response": user_responses
+        "response": responses
     }
     
    # Check if the responses directory exists; if not, create it
@@ -43,9 +43,9 @@ def save_responses(user_responses):
         # If the file exists, load the existing data and append the new response
         with open(filename, 'r') as file:
             data = json.load(file)
-        data.append(full_response_record)
+        data.append(entity)
     else:
-        data = [full_response_record]
+        data = [entity]
     
     # Save the data to the file
     with open(filename, 'w') as file:
