@@ -10,11 +10,13 @@ import base64
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
 
+st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
+
 with open("custom_styles.css", "r") as f:
     css_content = f.read()
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
-st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
+
 
 
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
