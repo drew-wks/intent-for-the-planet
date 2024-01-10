@@ -88,6 +88,7 @@ with tab3:
                 file_content += f"- {value}\n"  # Add value to the file content
             file_content += "\n"  # Add a newline for spacing between sections
         st.success("Thank you for contributing this Intent for the planet!")
+        st.json(session.json())
 
         # Create a download button
         st.download_button(
