@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 
-client = QdrantClient(https://1be15a39-6a90-4270-b4fe-09cdf7a01d22.us-east4-0.gcp.cloud.qdrant.io,
+client = QdrantClient("https://1be15a39-6a90-4270-b4fe-09cdf7a01d22.us-east4-0.gcp.cloud.qdrant.io",
                       prefer_grpc=True,
                       api_key=api_key,
                       )
