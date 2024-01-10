@@ -1,3 +1,21 @@
+/* streamlit control styles */
+[data-testid="collapsedControl"] { display: none; }
+#MainMenu { visibility: hidden; }
+footer { visibility: visible; }
+header { visibility: visible; }
+.block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+/* Custom style to reduce vertical space. overrides any other styles */
+.markdown-text-container {
+    margin-bottom: 5px !important;
+}
+
+/* INTENT branding styles */
 @import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
 
 .logotype {
@@ -23,21 +41,13 @@
     font-family: 'Lexend', sans-serif;
     font-weight: 500;
 }
-    
-/* Custom style to reduce vertical space. overrides any other styles */
-.markdown-text-container {
-    margin-bottom: 5px !important;
+
+.h3-style {
+    font-size: 2.51em; /* Typical size of h3 */
+    font-weight: bold; /* h3 is usually bold */
 }
 
-
-/* Other styles */
-[data-testid="collapsedControl"] { display: none; }
-#MainMenu { visibility: hidden; }
-footer { visibility: visible; }
-header { visibility: visible; }
-.block-container {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
+.h4-style {
+    font-size: 2em; /* Typical size of h4 */
+    font-weight: bold; /* h4 is usually bold */
 }

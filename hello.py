@@ -20,25 +20,9 @@ st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="co
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
 hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visible;}header {visibility: visible;}</style>"
 st.markdown(hide_st_style, unsafe_allow_html=True)
-# Custom styles
-st.markdown("""
-
-""", unsafe_allow_html=True)
-
 
 
 st.markdown("""
-    <style>
-        .h3-style {
-            font-size: 2.51em; /* Typical size of h3 */
-            font-weight: bold; /* h3 is usually bold */
-        }
-
-        .h4-style {
-            font-size: 2em; /* Typical size of h4 */
-            font-weight: bold; /* h4 is usually bold */
-        }
-    </style>
     <span class="logotype h3-style">INTENT</span>
     <span class="header h4-style" style="color: #e06332;">® </span>
     <span class="header h4-style" style="color: black;">for the Planet</span>
