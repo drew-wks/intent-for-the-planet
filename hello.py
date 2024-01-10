@@ -35,7 +35,7 @@ with tab2:
 
 with tab3:
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
-    st.markdown("Use this form for an initial intent session. To refine an Intent statement, use the 'Refine an INTENT' tab") 
+    st.markdown('<p class="body">"Use this form for an initial intent session. To refine an Intent statement, use the 'Refine an INTENT' tab."</p>', unsafe_allow_html=True)
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
