@@ -20,25 +20,6 @@ client = QdrantClient(url,
 now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-    
-   # Check if the responses directory exists; if not, create it
-    if not os.path.exists(responses_dir):
-        os.makedirs(responses_dir)
-    
-    # Check if the file exists
-    if os.path.exists(filename):
-        # If the file exists, load the existing data and append the new response
-        with open(filename, 'r') as file:
-            data = json.load(file)
-        data.append(entity)
-    else:
-        data = [entity]
-    
-    # Save the data to the file
-    with open(filename, 'w') as file:
-        json.dump(data, file, indent=4)
-
-
 
 def read_markdown_file(markdown_file):
    return Path(markdown_file).read_text()
