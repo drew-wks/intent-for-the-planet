@@ -3,6 +3,8 @@ import utils
 import os
 import sys
 from streamlit_extras.let_it_rain import rain
+from models import Session, Responses
+
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, parent_dir)
@@ -42,7 +44,7 @@ with tab3:
     form_container = st.empty()
     with form_container:
         with st.form(key='responses_form'):
-            facilitator = st.number_input('Facilitator Enter your creation number', step=1)
+            facilitator = st.number_input('Facilitator: Enter your creation number', step=1)
             responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
@@ -63,9 +65,18 @@ with tab3:
                 submitted = False 
 
         if submitted:
-            #utils.save_responses(responses)
             st.session_state['responses'] = responses
+            st.session_state['facilitator'] = facilitator
+            try:
+                responses_obj = Responses(**responses_data)
+                session = Session(facilitator=facilitator_number, responses=responses_obj)
+                st.success(f"Session and Responses captured successfully: {session.json()}")
+            except ValueError as e:
+                st.error(f"Invalid input: {e}")
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
             form_container.empty()
+    
     if submitted:
         rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
         file_content = ""
