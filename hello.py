@@ -41,8 +41,8 @@ with tab3:
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
-        facilitator = st.number_input('Facilitator Enter your creation number', step=1)
         with st.form(key='responses_form'):
+            facilitator = st.number_input('Facilitator Enter your creation number', step=1)
             responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
