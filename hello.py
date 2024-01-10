@@ -75,7 +75,7 @@ with tab3:
     if submitted:
         rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
         file_content = ""
-        for key, values in st.session_state['responses'].items():
+        for key, values in st.session_state['session'].items():
             st.markdown(f"**{key}**:")
             file_content += f"{key}:\n"  # Add key to the file content
             for value in values:
