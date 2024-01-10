@@ -28,6 +28,8 @@ tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Facilitator's Guide", "C
 
 with tab1:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
+    st.markdown('<p class="body">Text here TBD</p>', unsafe_allow_html=True)
+
 
 with tab2:
     doc = utils.read_markdown_file("facilitation_guide.md")
