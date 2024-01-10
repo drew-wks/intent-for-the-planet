@@ -5,7 +5,7 @@ import sys
 from streamlit_extras.let_it_rain import rain
 from models import Session, Responses
 
-api_key = st.secrets.QDRANT_API_KEY_2
+
 url = st.secrets.QDRANT_URL_2
 
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

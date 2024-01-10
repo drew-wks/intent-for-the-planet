@@ -7,7 +7,7 @@ from qdrant_client import QdrantClient, models
 import openai
 from pathlib import Path
 
-
+api_key = st.secrets.["QDRANT_API_KEY_2"]
 
 client = QdrantClient("https://1be15a39-6a90-4270-b4fe-09cdf7a01d22.us-east4-0.gcp.cloud.qdrant.io",
                       prefer_grpc=True,
