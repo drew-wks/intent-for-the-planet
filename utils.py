@@ -3,9 +3,9 @@ import json
 import os
 from datetime import datetime
 import uuid
+from qdrant_client import QdrantClient, models 
 import openai
 from pathlib import Path
-import os
 
 
 responses_dir = "responses_test"

@@ -8,8 +8,7 @@ openpyxl # used to import the library.xlsx file
 
 # utils.py
 openai==0.27.8
-langchain==0.0.315
-qdrant-client==1.6.3
+qdrant-client 1.7.0
 
 # models.py 
 typing
