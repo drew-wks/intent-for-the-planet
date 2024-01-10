@@ -66,7 +66,7 @@ with tab3:
 
         if submitted:
             responses_obj = Responses(**responses_data)
-            session = Session(facilitator=facilitator_number, responses=responses_obj)
+            session = Session(facilitator=facilitator, responses=responses)
             st.session_state['session'] = session
             form_container.empty()
     
