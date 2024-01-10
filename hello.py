@@ -32,8 +32,8 @@ with tab1:
 with tab2:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
+    st.markdown("This form is for conducting an initial intent session. To update an Intent statement, use the Update your INTENT tab")
     with form_container:
-        st.markdown("This form is for conducting an initial intent session. To update an Intent statement, use the Update your INTENT tab")
         with st.form(key='responses_form'):
             responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
