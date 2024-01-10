@@ -4,11 +4,8 @@ import os
 from datetime import datetime
 import uuid
 import openai
-import sys
-import pandas as pd
 from pathlib import Path
 import os
-import base64
 
 
 responses_dir = "responses_test"
