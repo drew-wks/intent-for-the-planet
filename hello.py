@@ -13,8 +13,6 @@ with open("custom_styles.css", "r") as f:
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 
-
-
 st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
 hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visible;}header {visibility: visible;}</style>"
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -39,7 +37,7 @@ with tab2:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
-        with st.form(key='responses'):
+        with st.form(key='responses_form'):
             responses = {
                 "My world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "What the planet' is for me": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
