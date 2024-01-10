@@ -13,11 +13,6 @@ with open("custom_styles.css", "r") as f:
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 
-st.markdown( """ <style> [data-testid="collapsedControl"] { display: none } </style> """, unsafe_allow_html=True, )
-hide_st_style = "<style>#MainMenu {visibility: hidden;}footer {visibility: visible;}header {visibility: visible;}</style>"
-st.markdown(hide_st_style, unsafe_allow_html=True)
-
-
 st.markdown("""
     <span class="logotype h3-style">INTENT</span>
     <span class="header h4-style" style="color: #e06332;">® </span>
