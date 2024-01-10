@@ -8,8 +8,6 @@ import openai
 from pathlib import Path
 
 
-api_key = st.secrets.QDRANT_API_KEY_2
-url = st.secrets.QDRANT_URL_2
 
 client = QdrantClient(url,
                       prefer_grpc=True,
