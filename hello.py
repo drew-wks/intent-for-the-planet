@@ -31,7 +31,7 @@ with tab1:
 
 with tab2:
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
-    st.markdown("This form is for conducting an initial intent session. To update an Intent statement, use the Update your INTENT tab") 
+    st.info("This form is for conducting an initial intent session. To update an Intent statement, use the Update your INTENT tab") 
     form_container = st.empty()
     with form_container:
         with st.form(key='responses_form'):
