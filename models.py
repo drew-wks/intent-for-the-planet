@@ -40,8 +40,8 @@ class Responses(BaseModel):
 class Session(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                           description="Unique identifier of the session")
-    facilitator: uuid.UUID = Field(
-        default_factory=uuid.uuid4, description="The id of the individual who facilitated the session")
+    facilitator: int = Field(
+        description="creation number of the facilitator. This will migrate to uuid in future")
     language: str = Field(
         default='en', description="The language in which the Intent statement is written (e.g., 'en' for English, 'es' for Spanish)")
     responses: Responses = Field(
@@ -50,7 +50,7 @@ class Session(BaseModel):
     """
     Usage example
     session = Session(
-        facilitator=uuid.uuid4(),
+        facilitator=4,
         language='en',
         responses=Responses
     )
