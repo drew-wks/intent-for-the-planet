@@ -6,6 +6,7 @@ import uuid
 from qdrant_client import QdrantClient, models 
 import openai
 from pathlib import Path
+from st_files_connection import FilesConnection
 
 api_key = st.secrets["QDRANT_API_KEY_2"]
 
