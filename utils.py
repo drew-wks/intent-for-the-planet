@@ -20,6 +20,7 @@ now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def read_markdown_file(markdown_file):
+   """read in a markdown file for display in streamlit"""
    return Path(markdown_file).read_text()
 
 
@@ -27,6 +28,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 
 def query(question, response_file):
+     """read in the json file as source data for the QA (this is temporary as we're building)"""
     with open(response_file) as f:
         data = json.load(f)
 

@@ -10,4 +10,6 @@ qdrant-client==1.7.0
 typing
 pydantic
 uuid
+gcsfs
+st-files-connection
 

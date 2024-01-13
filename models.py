@@ -5,6 +5,7 @@ from datetime import datetime
 
 
 class Responses(BaseModel):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier of the responses")
     type: str = Field(default='ind', description="The type of creator of the Intent statement", enum=[
                       "ind", "team", "org"])
     my_world: List[str] = Field(
@@ -31,8 +32,21 @@ class Responses(BaseModel):
         description="Response for 'My Intent For the Planet'")
 
     """
-    Usage example
-
+    usage example
+    response_example = Responses(
+        my_world=["A place of unity and respect"],
+        my_planet=["A shared home for all beings"],
+        care_physical=["Regular exercise", "Healthy eating"],
+        care_mental=["Meditation", "Reading"],
+        my_activities=["Public speaking", "Writing"],
+        my_resources=["Books", "Community support"],
+        care_who=["Family", "Nation"],
+        how_cherish=["Promoting sustainability", "Educating others"],
+        do_more=["Listening to diverse perspectives",
+                "Engaging in community service"],
+        do_less=["Spending time on trivial matters", "Neglecting self-care"],
+        my_intent=["To foster a world of equality and understanding"]
+    )
     """
 
 

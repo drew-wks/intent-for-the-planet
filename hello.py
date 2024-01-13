@@ -4,6 +4,7 @@ import os
 import sys
 from streamlit_extras.let_it_rain import rain
 from models import Session, Responses
+from st_files_connection import FilesConnection
 
 
 url = st.secrets.QDRANT_URL_2
@@ -114,6 +115,18 @@ with tab5:
         else:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
+
+
+
+
+# Create connection object and retrieve Google Cloud file contents.
+# Specify input format is a csv and to cache the result for 600 seconds.
+conn = st.connection('gcs', type=FilesConnection)
+df = conn.read("streamlit-intent/responses.csv", input_format="csv", ttl=600)
+
+# Print results.
+for row in df.itertuples():
+    st.write(f"{row.Owner} has a :{row.Pet}:")
 
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
