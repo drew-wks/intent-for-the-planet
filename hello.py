@@ -4,7 +4,7 @@ import os
 import sys
 from streamlit_extras.let_it_rain import rain
 from models import Session, Responses
-from streamlit.connections import FilesConnection
+from st_files_connection import FilesConnection
 
 
 url = st.secrets.QDRANT_URL_2
