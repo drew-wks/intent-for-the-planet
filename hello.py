@@ -120,13 +120,9 @@ with tab5:
 
 
 # Create connection object and retrieve Google Cloud file contents.
-# Specify input format is a csv and to cache the result for 600 seconds.
 conn = st.connection('gcs', type=FilesConnection)
 df = conn.read("streamlit-intent/responses.csv", input_format="csv", ttl=600)
-
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.Owner} has a :{row.Pet}:")
+st.dataframe(df)
 
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
