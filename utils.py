@@ -31,15 +31,12 @@ def query(question, response_file):
     """read in the json file as source data for the QA (this is temporary as we're building)"""
     with open(response_file) as f:
         data = json.load(f)
-
-
         messages =  [  
             {'role':'system', 
             'content': "You are a helpful assistant. Try to answer the users question based on the info in the INTENTs provided. You can supplement your response with your own information, but if you do please let user know what information you added. If you don't know the answer to something, just say I don't know."},    
             {'role':'user', 
             'content': f"""{question}```{data}```"""}  
         ] 
-
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-16k",  #gpt-4
             messages=messages,
