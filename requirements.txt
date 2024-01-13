@@ -11,5 +11,4 @@ typing
 pydantic
 uuid
 gcsfs
-st_files_connection
 
