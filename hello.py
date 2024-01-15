@@ -118,10 +118,11 @@ with tab5:
 
     # Create connection object and retrieve Google Cloud file contents.
     #FilesConection 
+    st.markdown('<span class="body markdown-text-container">Table of all Intents</span>', unsafe_allow_html=True)
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
     st.dataframe(df)
-    
+
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
