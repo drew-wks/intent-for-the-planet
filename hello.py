@@ -120,8 +120,9 @@ with tab5:
 
 
 # Create connection object and retrieve Google Cloud file contents.
+    #FilesConection 
 conn = st.connection('gcs', type=FilesConnection)
-df = conn.read("streamlit-intent/responses.csv", input_format="csv", ttl=600)
+df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
 st.dataframe(df)
 
 
