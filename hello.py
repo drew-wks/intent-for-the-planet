@@ -116,15 +116,12 @@ with tab5:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 
-
-
-
-# Create connection object and retrieve Google Cloud file contents.
+    # Create connection object and retrieve Google Cloud file contents.
     #FilesConection 
-conn = st.connection('gcs', type=FilesConnection)
-df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
-st.dataframe(df)
-
+    conn = st.connection('gcs', type=FilesConnection)
+    df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
+    st.dataframe(df)
+    
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
