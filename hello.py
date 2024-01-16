@@ -3,8 +3,10 @@ import utils
 import os
 import sys
 from streamlit_extras.let_it_rain import rain
+import json
 from models import Session, Responses
 from st_files_connection import FilesConnection
+from google.cloud import storage
 
 
 url = st.secrets.QDRANT_URL_2
@@ -70,7 +72,8 @@ with tab3: # --- CONTRIBUTE AN INTENT---
         if submitted:
             responses = Responses(**form_responses) #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
-            st.session_state['session'] = session
+            st.session_state['session'] = session # this is so you can show it on the page later
+            utils.session_to_csv(session, 'sessions.csv')
             form_container.empty()
     
     if submitted:
@@ -117,7 +120,6 @@ with tab5: # --- EXPLORE THE INTENTS ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 
     # Create connection object and retrieve Google Cloud file contents.
-    #FilesConection 
     st.markdown('<span class="body markdown-text-container">Table of all Intents</span>', unsafe_allow_html=True)
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)

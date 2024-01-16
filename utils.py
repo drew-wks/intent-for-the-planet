@@ -36,10 +36,9 @@ from typing import List
 
 # Assuming Responses and Session are defined as per your classes
 
-def session_to_csv(file_name: str):
-    
-    #get session and convert to json
-    session = st.session_state['session']
+
+def session_to_csv(session, file_name: str):
+    # Convert the session object to a dictionary and then to JSON
     session_dict = session.dict()
     session_json = json.dumps(session_dict)
     
@@ -48,20 +47,19 @@ def session_to_csv(file_name: str):
 
     # Read existing CSV file from Google Cloud Storage
     conn = st.connection('gcs', type=FilesConnection)
-    responses_df = conn.read("streamlit-data-bucket/intent/" + file_name, input_format="csv", ttl=600)
+    sessions_df = conn.read("streamlit-data-bucket/intent/" + file_name, input_format="csv", ttl=600)
 
     # Append new data to the DataFrame
-    updated_responses_df = responses_df.append(df, ignore_index=True)
+    updated_sessions_df = sessions_df.append(df, ignore_index=True)
 
     # Convert updated DataFrame to CSV format
-    updated_responses_csv = updated_responses_df.to_csv(index=False)
+    updated_sessions_csv = updated_sessions_df.to_csv(index=False)
 
     # Write the CSV data back to Google Cloud Storage
     storage_client = storage.Client()
     bucket = storage_client.get_bucket('streamlit-data-bucket')
     blob = bucket.blob('intent/' + file_name)
-    blob.upload_from_string(updated_responses_csv, content_type='text/csv')
-
+    blob.upload_from_string(updated_sessions_csv, content_type='text/csv')
 
 
 

@@ -12,3 +12,4 @@ pydantic
 uuid
 gcsfs
 st_files_connection
+google-cloud-storage
