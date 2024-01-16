@@ -3,6 +3,7 @@ import json
 import os
 from datetime import datetime
 import uuid
+from uuid import UUID
 from qdrant_client import QdrantClient, models 
 import openai
 from pathlib import Path
@@ -34,14 +35,20 @@ from pydantic import BaseModel
 import uuid
 from typing import List
 
-# Assuming Responses and Session are defined as per your classes
 
+# Custom JSON encoder that converts UUIDs to strings
+class JSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, UUID):
+            return str(obj)
+        return json.JSONEncoder.default(self, obj)
+    
 
 def session_to_csv(file_name: str):
     session = st.session_state['session']
     # Convert the session object to a dictionary and then to JSON
     session_dict = session.dict()
-    session_json = json.dumps(session_dict)
+    session_json = json.dumps(session_dict, cls=JSONEncoder)
     
     # Normalize JSON data into a DataFrame
     df = pd.json_normalize(json.loads(session_json), sep='_')
