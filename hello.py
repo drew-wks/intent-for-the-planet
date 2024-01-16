@@ -73,7 +73,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             responses = Responses(**form_responses) #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
             st.session_state['session'] = session # this is so you can show it on the page later
-            #utils.session_to_csv('sessions.csv')
+            utils.session_to_csv('sessions.csv')
             form_container.empty()
     
     if submitted:
