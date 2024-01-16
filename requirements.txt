@@ -10,7 +10,7 @@ qdrant-client==1.7.0
 typing
 pydantic
 uuid
-gcsfs
+gcsfs #st.connection needs this for gcs
 st_files_connection
-google-cloud-storage
+google-cloud-storage #needed to write back to gcs
 pandas
