@@ -8,6 +8,8 @@ from qdrant_client import QdrantClient, models
 import openai
 from pathlib import Path
 import pandas as pd
+from st_files_connection import FilesConnection
+
 
 api_key = st.secrets["QDRANT_API_KEY_2"]
 openai.api_key = st.secrets["OPENAI_API_KEY"]
