@@ -31,16 +31,16 @@ st.markdown('<p class="sub-header">The intent of the session is to encourage int
 
 tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Facilitator's Guide", "Contribute an INTENT", "Refine an INTENT", "Explore the INTENTs"])
 
-with tab1:
+with tab1: # ---ABOUT INTENT---
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     st.markdown('<p class="body">Text here TBD as needed</p>', unsafe_allow_html=True)
 
 
-with tab2:
+with tab2: # ---FACILITATOR'S GUIDE---
     doc = utils.read_markdown_file("facilitation_guide.md")
     st.markdown(doc, unsafe_allow_html=True)
 
-with tab3:
+with tab3: # --- CONTRIBUTE AN INTENT---
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
     st.markdown('<p class="body">Use this form for an initial intent session for an individual person. To refine an Intent statement, use the Refine an INTENT tab.</p>', unsafe_allow_html=True)
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
@@ -68,8 +68,8 @@ with tab3:
                 submitted = False 
 
         if submitted:
-            responses = Responses(**form_responses)
-            session = Session(facilitator=facilitator, responses=responses)
+            responses = Responses(**form_responses) #creates a response object
+            session = Session(facilitator=facilitator, responses=responses) #creates a session object
             st.session_state['session'] = session
             form_container.empty()
     
@@ -84,7 +84,7 @@ with tab3:
         #        file_content += f"- {value}\n"  # Add value to the file content
         #   file_content += "\n"  # Add a newline for spacing between sections
         st.success("Thank you for contributing this Intent for the planet!")
-        st.json(st.session_state['session'].json())
+        
 
         # Create a download button
         #st.download_button(
@@ -95,11 +95,11 @@ with tab3:
         # )
 
 
-with tab4:
+with tab4: # --- REFINE AN INTENT ---
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     st.markdown('<p class="body">Form under development</p>', unsafe_allow_html=True)
 
-with tab5:
+with tab5: # --- EXPLORE THE INTENTS ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
     st.markdown('<span class="body markdown-text-container">Ask a question of the collection of INTENTs:</span>', unsafe_allow_html=True)
     question = st.text_input("", placeholder="Type your question here")
@@ -108,9 +108,9 @@ with tab5:
 
     if st.button("Submit", type="primary"):
         if question:
-            response = utils.query(question, response_file)
+            query_response = utils.query(question, response_file)
             st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True) 
-            st.markdown(f'<p class="header">Response:</p><div class="body">{response}</div>', unsafe_allow_html=True)
+            st.markdown(f'<p class="header">Response:</p><div class="body">{query_response}</div>', unsafe_allow_html=True)
 
         else:
             st.write("Please enter a question.")
@@ -122,7 +122,7 @@ with tab5:
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
     st.data_editor(df)
-
+    session_to_csv(responses, 'responses.csv')
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""

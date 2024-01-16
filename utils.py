@@ -6,8 +6,10 @@ import uuid
 from qdrant_client import QdrantClient, models 
 import openai
 from pathlib import Path
+import pandas as pd
 
 api_key = st.secrets["QDRANT_API_KEY_2"]
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 client = QdrantClient("https://1be15a39-6a90-4270-b4fe-09cdf7a01d22.us-east4-0.gcp.cloud.qdrant.io",
                       prefer_grpc=True,
@@ -24,7 +26,43 @@ def read_markdown_file(markdown_file):
    return Path(markdown_file).read_text()
 
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+
+
+import pandas as pd
+from google.cloud import storage
+from pydantic import BaseModel
+import uuid
+from typing import List
+
+# Assuming Responses and Session are defined as per your classes
+
+def session_to_csv(file_name: str):
+    
+    #get session and convert to json
+    session = st.session_state['session']
+    session_dict = session.dict()
+    session_json = json.dumps(session_dict)
+    
+    # Normalize JSON data into a DataFrame
+    df = pd.json_normalize(json.loads(session_json), sep='_')
+
+    # Read existing CSV file from Google Cloud Storage
+    conn = st.connection('gcs', type=FilesConnection)
+    responses_df = conn.read("streamlit-data-bucket/intent/" + file_name, input_format="csv", ttl=600)
+
+    # Append new data to the DataFrame
+    updated_responses_df = responses_df.append(df, ignore_index=True)
+
+    # Convert updated DataFrame to CSV format
+    updated_responses_csv = updated_responses_df.to_csv(index=False)
+
+    # Write the CSV data back to Google Cloud Storage
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket('streamlit-data-bucket')
+    blob = bucket.blob('intent/' + file_name)
+    blob.upload_from_string(updated_responses_csv, content_type='text/csv')
+
+
 
 
 def query(question, response_file):
