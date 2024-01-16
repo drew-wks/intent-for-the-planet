@@ -49,7 +49,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
     form_container = st.empty()
     with form_container:
         with st.form(key='responses_form'):
-            facilitator = st.number_input('Facilitator: Enter your creation number', step=1)
+            facilitator = st.number_input("Facilitator: Enter your creation number", step=1)
             form_responses = {
                 "my_world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "my_planet": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
@@ -73,7 +73,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             responses = Responses(**form_responses) #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
             st.session_state['session'] = session # this is so you can show it on the page later
-            utils.session_to_csv(session, 'sessions.csv')
+            utils.session_to_csv('sessions.csv')
             form_container.empty()
     
     if submitted:
@@ -106,7 +106,7 @@ with tab5: # --- EXPLORE THE INTENTS ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
     st.markdown('<span class="body markdown-text-container">Ask a question of the collection of INTENTs:</span>', unsafe_allow_html=True)
     question = st.text_input("", placeholder="Type your question here")
-    synthetic = st.toggle('Include synthetic data')
+    synthetic = st.toggle("Include synthetic data")
     response_file = "responses/responses_real.json" if not synthetic else "responses/responses_all.json"
 
     if st.button("Submit", type="primary"):
@@ -123,7 +123,7 @@ with tab5: # --- EXPLORE THE INTENTS ---
     st.markdown('<span class="body markdown-text-container">Table of all Intents</span>', unsafe_allow_html=True)
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
-    st.data_editor(df)
+    st.dataframe(df)
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""

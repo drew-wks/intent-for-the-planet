@@ -37,7 +37,8 @@ from typing import List
 # Assuming Responses and Session are defined as per your classes
 
 
-def session_to_csv(session, file_name: str):
+def session_to_csv(file_name: str):
+    session = st.session_state['session']
     # Convert the session object to a dictionary and then to JSON
     session_dict = session.dict()
     session_json = json.dumps(session_dict)
