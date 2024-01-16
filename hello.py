@@ -124,7 +124,7 @@ with tab5: # --- EXPLORE THE INTENTS ---
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
     st.data_editor(df)
-    session_to_csv(responses, 'responses.csv')
+    session_to_csv(session, 'sessions.csv')
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
