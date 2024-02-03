@@ -75,7 +75,7 @@ def session_to_csv(file_name: str):
 
 def query(question, response_file):
     """read in the json file as source data for the QA (this is temporary as we're building)"""
-    with open(response_file) as f:
+    with open(response_file, encoding='utf-8') as f:
         data = json.load(f)
         messages =  [  
             {'role':'system', 

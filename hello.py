@@ -1,8 +1,8 @@
 import streamlit as st
+from streamlit_extras.let_it_rain import rain
 import utils
 import os
 import sys
-from streamlit_extras.let_it_rain import rain
 import json
 from models import Session, Responses
 from st_files_connection import FilesConnection
@@ -17,7 +17,7 @@ sys.path.insert(0, parent_dir)
 
 st.set_page_config(page_title="INTENT for the Planet", initial_sidebar_state="collapsed")
 
-with open("custom_styles.css", "r") as f:
+with open("config/custom_styles.css", "r", encoding='utf-8') as f:
     css_content = f.read()
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
@@ -40,7 +40,7 @@ with tab1: # ---ABOUT INTENT---
 
 
 with tab2: # ---FACILITATOR'S GUIDE---
-    doc = utils.read_markdown_file("facilitation_guide.md")
+    doc = utils.read_markdown_file("docs/facilitation_guide.md")
     st.markdown(doc, unsafe_allow_html=True)
 
 with tab3: # --- CONTRIBUTE AN INTENT---
@@ -49,9 +49,9 @@ with tab3: # --- CONTRIBUTE AN INTENT---
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
-        with st.form(key='responses_form'):
+        with st.form(key='ind_responses_form'):
             facilitator = st.number_input("Facilitator: Enter your creation number", step=1)
-            form_responses = {
+            ind_form_responses = {
                 "my_world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "my_planet": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
                 "care_physical": st.text_area("3. How do you care for your physical well-being?",placeholder="You can put more than one idea down.", help="Reflect on the things you do to support your physical well-being.").split('\\n'),
@@ -71,7 +71,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
                 submitted = False 
 
         if submitted:
-            responses = Responses(**form_responses) #creates a response object
+            responses = Responses(**ind_form_responses) #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
             st.session_state['session'] = session # this is so you can show it on the page later
             utils.session_to_csv('sessions.csv')
