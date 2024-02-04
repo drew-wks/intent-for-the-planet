@@ -4,7 +4,7 @@ import utils
 import os
 import sys
 import json
-from models import Session, Responses
+from data_models import Session, Responses
 from st_files_connection import FilesConnection
 import pandas as pd
 from google.cloud import storage
@@ -71,10 +71,11 @@ with tab3: # --- CONTRIBUTE AN INTENT---
                 submitted = False 
 
         if submitted:
-            responses = Responses(**ind_form_responses) #creates a response object
+            """Creates an object from class Responses called "responses" The ** operator is used to unpack the ind_form_responses dictionary so that its key-value pairs are passed as keyword arguments into object. """
+            responses = Responses(**ind_form_responses) # type: ignore #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
             st.session_state['session'] = session # this is so you can show it on the page later
-            utils.session_to_csv('sessions.csv')
+            utils.better_session_to_csv(session, 'sessions.csv')
             form_container.empty()
     
     if submitted:

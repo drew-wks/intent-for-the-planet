@@ -6,7 +6,7 @@ from datetime import datetime
 
 class Responses(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier of the responses")
-    type: str = Field(default='ind', description="The type of creator of the Intent statement", enum=[
+    type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
                       "ind", "team", "org"])
     my_world: List[str] = Field(
         description="Response for '1. What is your world?'")
@@ -125,7 +125,7 @@ class Team(Entity):
 class Organization(Entity):
     """The organization that has created an Intent statement."""
     ids: List[Tuple[str, uuid.UUID]] = Field(
-        description="List of tuples, each containing a type ('team' or 'individual') and a UUID")
+        description="List of tuples, each containing a type ('team' or 'individual') and an entity UUID")
     # Additional fields or methods specific to Organization
 
     """
@@ -142,9 +142,9 @@ class IntentStatement(BaseModel):
     """An instance of this class represents a statement made by the individual."""
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                           description="The unique identifier of the Intent")
-    creator: uuid.UUID = Field(
-        description="The unique identifier of the creator (from class Individual)")
-    type: str = Field(default='ind', description="The type of creator of the Intent statement", enum=[
+    entity_id: uuid.UUID = Field(
+        description="The ID of the entity that created the statement")
+    type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
                       "ind", "team", "org"])
     name: Optional[str] = Field(description="The name of the Intent")
     statement: List[str] = Field(

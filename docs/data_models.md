@@ -1,30 +1,22 @@
-## INTENT Class Diagram
+## INTENT Data Models
 
 <div style="border: 2px solid black; padding: 10px;">
 
 ```mermaid
 classDiagram
-    class Individual {
+    class Entity {
         +uuid id
         +int creation_num
         +str haplotype
         +Session session
         +List statement_log
     }
+    class Individual {
+    }
     class Team {
-        +uuid id
-        +int creation_num
-        +str haplotype
-        +Session session
-        +List statement_log
         +List ids
     }
     class Organization {
-        +uuid id
-        +int creation_num
-        +str haplotype
-        +Session session
-        +List statement_log
         +List ids
     }
     class Session {
@@ -59,16 +51,22 @@ classDiagram
     class IntentsCollection {
         +List intents
     }
-    Individual "1" --o "1" Session : has
-    Team "1" --o "1" Session : has
-    Organization "1" --o "1" Session : has
-    Session "1" --* "1" Responses : produces
-    Individual "1" --|> "*" Entity : isA
-    Team "1" --|> "*" Entity : isA
-    Organization "1" --|> "*" Entity : isA
-    Entity <.. IntentStatement : creates
-    IntentsCollection "1" --* "*" IntentStatement : contains
+    IntentsCollection --* IntentStatement : contains
+    Session --* "1" Responses : contains
+    Entity <|-- Individual : isA
+    Entity <|-- Team : isA
+    Entity <|-- Organization : isA
+    Session--|> "1" IntentStatement : creates
+    Individual --o "1" Session : has
+    Team --o "1" Session : has
+    Organization --o "1" Session : has
 
 ```
 
 </div>
+
+### Initial flow: 
+1. The first Entity object is created by hand   
+2. A response object is created. 
+3. A session object is created. It contains the facilitator entity and the responses
+4. An entity is created. It contains reference to their session

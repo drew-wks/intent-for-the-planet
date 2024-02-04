@@ -2,6 +2,8 @@ import streamlit as st
 import json
 import os
 from datetime import datetime
+from pydantic import BaseModel, Field
+from typing import List
 import uuid
 from uuid import UUID
 from qdrant_client import QdrantClient, models 
@@ -9,6 +11,8 @@ import openai
 from pathlib import Path
 import pandas as pd
 from st_files_connection import FilesConnection
+import logging
+from google.cloud import storage
 
 
 api_key = st.secrets["QDRANT_API_KEY_2"]
@@ -28,14 +32,6 @@ def read_markdown_file(markdown_file):
    """read in a markdown file for display in streamlit"""
    return Path(markdown_file).read_text()
 
-
-
-
-import pandas as pd
-from google.cloud import storage
-from pydantic import BaseModel
-import uuid
-from typing import List
 
 
 # Custom JSON encoder that converts UUIDs to strings
@@ -70,6 +66,35 @@ def session_to_csv(file_name: str):
     bucket = storage_client.get_bucket('streamlit-data-bucket')
     blob = bucket.blob('intent/' + file_name)
     blob.upload_from_string(updated_sessions_csv, content_type='text/csv')
+
+
+
+def better_session_to_csv(session: Session, file_name: str):
+    
+    '''Example usage
+    better_session_to_csv(session, 'sessions.csv')
+    '''
+
+    session = st.session_state['session']
+    session_dict = session.dict(by_alias=True)
+    df = pd.json_normalize(session_dict, sep='_')
+
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket('streamlit-data-bucket')
+    blob = bucket.blob('intent/' + file_name)
+
+    try:
+        blob_data = blob.download_as_text()
+        existing_df = pd.read_csv(pd.compat.StringIO(blob_data))
+        updated_df = pd.concat([existing_df, df], ignore_index=True)
+    except Exception as e:
+        print(f"Error reading existing CSV. Creating a new one. Error: {e}")
+        updated_df = df
+
+    updated_csv = updated_df.to_csv(index=False)
+    blob.upload_from_string(updated_csv, content_type='text/csv')
+
+
 
 
 
