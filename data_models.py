@@ -1,11 +1,28 @@
 from typing import List, Dict, Tuple, Union, Optional
-from pydantic import BaseModel, Field, field_validator, constr
 import uuid
 from datetime import datetime
-import json
+from pydantic import BaseModel, Field
 
 
 class Responses(BaseModel):
+        """
+    Usage example
+    response_example = Responses(
+        my_world=["A place of unity and respect"],
+        my_planet=["A shared home for all beings"],
+        care_physical=["Regular exercise", "Healthy eating"],
+        care_mental=["Meditation", "Reading"],
+        my_activities=["Public speaking", "Writing"],
+        my_resources=["Books", "Community support"],
+        care_who=["Family", "Nation"],
+        how_cherish=["Promoting sustainability", "Educating others"],
+        do_more=["Listening to diverse perspectives",
+                "Engaging in community service"],
+        do_less=["Spending time on trivial matters", "Neglecting self-care"],
+        my_intent=["To foster a world of equality and understanding"]
+    )
+    print(response_example.responses())
+    """
     id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier of the responses")
     type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
                       "ind", "team", "org"])
@@ -48,26 +65,6 @@ class Responses(BaseModel):
         return filtered_dict
 
 
-    """
-    Usage example
-    response_example = Responses(
-        my_world=["A place of unity and respect"],
-        my_planet=["A shared home for all beings"],
-        care_physical=["Regular exercise", "Healthy eating"],
-        care_mental=["Meditation", "Reading"],
-        my_activities=["Public speaking", "Writing"],
-        my_resources=["Books", "Community support"],
-        care_who=["Family", "Nation"],
-        how_cherish=["Promoting sustainability", "Educating others"],
-        do_more=["Listening to diverse perspectives",
-                "Engaging in community service"],
-        do_less=["Spending time on trivial matters", "Neglecting self-care"],
-        my_intent=["To foster a world of equality and understanding"]
-    )
-
-    print(response_example.responses())
-    """
-
 
 class Session(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
@@ -109,8 +106,13 @@ class Entity(BaseModel):
     def created_at(self) -> datetime:
         """Initial date as the date of the first Intent statement."""
         if self.statement_log:
-            return self.statement_log[0]['updated_at']
+            updated_at = self.statement_log[0].get('updated_at')
+            if isinstance(updated_at, datetime):
+                return updated_at
+            else:
+                raise ValueError("Expected a datetime object for 'updated_at'")
         return None
+    
 
     @property
     def most_recent_intent_statement(self):
@@ -145,7 +147,7 @@ class Organization(Entity):
     creation_num=2,
     responses=Responses(my_world=["My personal world view..."], ...)
     member_ids=[uuid.uuid4(), uuid.uuid4()]
-)
+                        )
     """
 
 
