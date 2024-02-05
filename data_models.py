@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 
 class Responses(BaseModel):
-        """
+    """
     Usage example
     response_example = Responses(
         my_world=["A place of unity and respect"],
@@ -21,8 +21,8 @@ class Responses(BaseModel):
         do_less=["Spending time on trivial matters", "Neglecting self-care"],
         my_intent=["To foster a world of equality and understanding"]
     )
-    print(response_example.responses())
     """
+    
     id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier of the responses")
     type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
                       "ind", "team", "org"])
@@ -50,7 +50,11 @@ class Responses(BaseModel):
         description="My Intent For the Planet")
 
     def responses(self):
-        # Access the model's schema to get field descriptions
+        """Access the model's schema to get field descriptions
+         
+        Example usage
+        print(response_example.responses())
+        """
         schema = self.model_json_schema()["properties"]
         filtered_dict = {}
         for key, value in self.model_dump().items():
@@ -67,6 +71,12 @@ class Responses(BaseModel):
 
 
 class Session(BaseModel):
+    """
+    Usage examples
+    session_example = Session(facilitator=4, language='en', responses=Responses)
+    
+    print(session_example.responses.responses())
+    """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the session")
     facilitator: int = Field(
@@ -76,17 +86,6 @@ class Session(BaseModel):
     responses: Responses = Field(
         description="Structured responses from the session")
 
-    """
-    Usage example
-    session_example = Session(
-        facilitator=4,
-        language='en',
-        responses=Responses
-    )
-    
-    
-    print(session_example.responses.responses())
-    """
 
 
 class Entity(BaseModel):
