@@ -3,11 +3,9 @@ from streamlit_extras.let_it_rain import rain
 import utils
 import os
 import sys
-import json
 from data_models import Session, Responses
 from st_files_connection import FilesConnection
 import pandas as pd
-from google.cloud import storage
 
 
 url = st.secrets.QDRANT_URL_2
@@ -76,11 +74,12 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             #st.session_state['session'] = session #save that session object
             utils.append_to_gcs_file(session, 'sessions.csv')
             st.markdown("Session Responses")
-            responses_dict = responses.responses()
-            st.write(responses_dict)
+            response_dict = responses.responses()
+            formatted_markdown = utils.dict_to_markdown(responses_dict)
+            st.markdown(formatted_markdown, unsafe_allow_html=True)
     
-            rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
-            st.success("Thank you for contributing this Intent for the planet!")
+            #rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
+            #st.success("Thank you for contributing this Intent for the planet!")
         
 
         # Create a download button

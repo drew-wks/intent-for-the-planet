@@ -60,6 +60,40 @@ def append_to_gcs_file(data_object, gcs_file_name):
 
 
 
+def dict_to_markdown(dict):
+    """
+    Takes a dictionary of responses and formats it into a Markdown string.
+    
+    Args:
+    - responses_dict: A dictionary where keys are questions and values are responses.
+    
+    Returns:
+    - A string formatted in Markdown.
+    """
+    markdown_str = ""
+    for question, response in dict.items():
+        # Split responses into lines for multi-line responses
+        formatted_response = response.replace("\n", "\n\n")
+        # Append the question and formatted response to the Markdown string
+        markdown_str += f"**{question}**\n\n{formatted_response}\n\n"
+    
+    return markdown_str
+
+# Example usage with your dictionary
+responses_dict = {
+    '1. What is your world?': 'A place of unity and respect',
+    "2. What is 'the planet' is for you?": 'A shared home for all beings',
+    '3. How do you care for your physical well-being?': 'Regular exercise\nHealthy eating',
+    '4. How do you care for your mental well-being?': 'Meditation\nReading',
+    '5. What are your activities?': 'Public speaking\nWriting\n',
+    '6. What are your resources?': 'My books\nCommunity support',
+    '7. Who do you care about?': 'Family\nNation\n',
+    '8. How do you cherish the planet?': 'Promoting sustainability\neducating others\n',
+    '9. What do you need to do more of?': 'Listening to diverse perspectives\n\n',
+    '10. What do you need to do less of?': 'Spending time on trivial matters\nNeglecting self-care',
+    'My Intent For the Planet': 'To foster a world of equality and understanding\nTo provide food for us all\nTo have an educated and caring world'
+}
+
 
 
 def query(question, response_file):
