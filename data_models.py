@@ -43,10 +43,9 @@ class Responses(BaseModel):
             ]:
                 description = schema[key].get("description", key)  # Fallback to key if no description
                 # Join list values with '\n' to make them look nicer in text
-                filtered_dict[description] = '\n'.join(value) if isinstance(value, list) else value
+                filtered_dict[description] = '<br>'.join(value) if isinstance(value, list) else value
 
-        # Convert the filtered dictionary to a JSON string
-        return json.dumps(filtered_dict, ensure_ascii=False, indent=4)
+        return filtered_dict
 
 
     """
@@ -72,7 +71,7 @@ class Responses(BaseModel):
 
 class Session(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                          description="Unique identifier of the session")
+                        description="Unique identifier of the session")
     facilitator: int = Field(
         description="creation number of the facilitator. This will migrate to uuid in future")
     language: str = Field(
@@ -89,7 +88,6 @@ class Session(BaseModel):
     )
     
     
-    """
     print(session_example.responses.responses())
     """
 
@@ -97,7 +95,7 @@ class Session(BaseModel):
 class Entity(BaseModel):
     """Base class for an entity (individual or organization) creating an Intent statement."""
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                          description="Unique identifier of the entity")
+                        description="Unique identifier of the entity")
     creation_num: int = Field(
         description="The number of entities that have created an Intent statement at the time this entity created their first such statement.")
     haplotype: str = Field(
@@ -125,14 +123,7 @@ class Entity(BaseModel):
 
 class Individual(Entity):
     """The person who has created an Intent statement."""
-    # Additional fields or methods specific to Individual
-
-    """
-    individual = Individual(
-        creation_num=1,
-        responses=Responses(my_world=["My personal world view..."], ...)
-    )
-    """
+    
 
 
 class Team(Entity):
@@ -159,13 +150,15 @@ class Organization(Entity):
 
 
 class IntentStatement(BaseModel):
-    """An instance of this class represents a statement made by the individual."""
+    """
+    An instance of this class represents a statement made by the individual.
+    """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                           description="The unique identifier of the Intent")
     entity_id: uuid.UUID = Field(
         description="The ID of the entity that created the statement")
     type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
-                      "ind", "team", "org"])
+        "ind", "team", "org"])
     name: Optional[str] = Field(description="The name of the Intent")
     statement: List[str] = Field(
         default_factory=list, description="The Intent statement")
@@ -185,7 +178,10 @@ class IntentStatement(BaseModel):
 
 
 class IntentsCollection(BaseModel):
-    """If we plan to perform operations on a collection of intent statements as a whole (e.g., filtering, sorting, aggregating, or managing intents in groups), we might consider having a separate class to represent a collection of intents. The IntentsCollection class, could contain methods and properties for working with multiple intent statements."""
+    """
+    If we plan to perform operations on a collection of intent statements as a whole (e.g., filtering, sorting, aggregating, or managing intents in groups), we might consider having a separate class to represent a collection of intents. The IntentsCollection class, could contain methods and properties for working with multiple intent statements.
+    """
+    
     intents: List[IntentStatement] = []
 
     def add_intent(self, intent: IntentStatement):
@@ -197,7 +193,3 @@ class IntentsCollection(BaseModel):
                 return intent
         return None
 
-    """
-    Usage example
-
-    """
