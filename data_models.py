@@ -2,6 +2,7 @@ from typing import List, Dict, Tuple, Union, Optional
 from pydantic import BaseModel, Field, field_validator, constr
 import uuid
 from datetime import datetime
+import json
 
 
 class Responses(BaseModel):
@@ -9,27 +10,44 @@ class Responses(BaseModel):
     type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
                       "ind", "team", "org"])
     my_world: List[str] = Field(
-        description="Response for '1. What is your world?'")
+        description="1. What is your world?")
     my_planet: List[str] = Field(
-        description="Response for '2. What is 'the planet' is for you?'")
+        description="2. What is 'the planet' is for you?")
     care_physical: List[str] = Field(
-        description="Response for '3. How do you care for your physical well-being?'")
+        description="3. How do you care for your physical well-being?")
     care_mental: List[str] = Field(
-        description="Response for '4. How do you care for your mental well-being?'")
+        description="4. How do you care for your mental well-being?")
     my_activities: List[str] = Field(
-        description="Response for '5. What are your activities?'")
+        description="5. What are your activities?")
     my_resources: List[str] = Field(
-        description="Response for '6. What are your resources?'")
+        description="6. What are your resources?")
     care_who: List[str] = Field(
-        description="Response for '7. Who do you care about?'")
+        description="7. Who do you care about?")
     how_cherish: List[str] = Field(
-        description="Response for '8. How do you cherish the planet?'")
+        description="8. How do you cherish the planet?")
     do_more: List[str] = Field(
-        description="Response for '9. What do you need to do more of?'")
+        description="9. What do you need to do more of?")
     do_less: List[str] = Field(
-        description="Response for '10. What do you need to do less of?'")
+        description="10. What do you need to do less of?")
     my_intent: List[str] = Field(
-        description="Response for 'My Intent For the Planet'")
+        description="My Intent For the Planet")
+
+    def responses(self):
+        # Access the model's schema to get field descriptions
+        schema = self.model_json_schema()["properties"]
+        filtered_dict = {}
+        for key, value in self.model_dump().items():
+            if key in [
+                "my_world", "my_planet", "care_physical", "care_mental", "my_activities",
+                "my_resources", "care_who", "how_cherish", "do_more", "do_less", "my_intent"
+            ]:
+                description = schema[key].get("description", key)  # Fallback to key if no description
+                # Join list values with '\n' to make them look nicer in text
+                filtered_dict[description] = '\n'.join(value) if isinstance(value, list) else value
+
+        # Convert the filtered dictionary to a JSON string
+        return json.dumps(filtered_dict, ensure_ascii=False, indent=4)
+
 
     """
     usage example

@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-import os
+import io
 from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import List
@@ -19,9 +19,9 @@ api_key = st.secrets["QDRANT_API_KEY_2"]
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 client = QdrantClient("https://1be15a39-6a90-4270-b4fe-09cdf7a01d22.us-east4-0.gcp.cloud.qdrant.io",
-                      prefer_grpc=True,
-                      api_key=api_key,
-                      )
+                    prefer_grpc=True,
+                    api_key=api_key,
+                    )
 
 
 now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -29,8 +29,8 @@ now_utc = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def read_markdown_file(markdown_file):
-   """read in a markdown file for display in streamlit"""
-   return Path(markdown_file).read_text()
+    """read in a markdown file for display in streamlit"""
+    return Path(markdown_file).read_text()
 
 
 
@@ -40,57 +40,21 @@ class JSONEncoder(json.JSONEncoder):
         if isinstance(obj, UUID):
             return str(obj)
         return json.JSONEncoder.default(self, obj)
-    
-
-def session_to_csv(file_name: str):
-    session = st.session_state['session']
-    # Convert the session object to a dictionary and then to JSON
-    session_dict = session.dict()
-    session_json = json.dumps(session_dict, cls=JSONEncoder)
-    
-    # Normalize JSON data into a DataFrame
-    df = pd.json_normalize(json.loads(session_json), sep='_')
-
-    # Read existing CSV file from Google Cloud Storage
-    conn = st.connection('gcs', type=FilesConnection)
-    sessions_df = conn.read("streamlit-data-bucket/intent/" + file_name, input_format="csv", ttl=600)
-
-    # Append new data to the DataFrame
-    updated_sessions_df = sessions_df.append(df, ignore_index=True)
-
-    # Convert updated DataFrame to CSV format
-    updated_sessions_csv = updated_sessions_df.to_csv(index=False)
-
-    # Write the CSV data back to Google Cloud Storage
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket('streamlit-data-bucket')
-    blob = bucket.blob('intent/' + file_name)
-    blob.upload_from_string(updated_sessions_csv, content_type='text/csv')
 
 
 
-def better_session_to_csv(session: Session, file_name: str):
-    
+def append_to_gcs_file(data_object, gcs_file_name):
     '''Example usage
-    better_session_to_csv(session, 'sessions.csv')
+    append_to_gcs_file(session, 'sessions.csv')
     '''
-
-    session = st.session_state['session']
-    session_dict = session.dict(by_alias=True)
-    df = pd.json_normalize(session_dict, sep='_')
-
-    storage_client = storage.Client()
+    data_object_dict = data_object.dict(by_alias=True)
+    df = pd.json_normalize(data_object_dict, sep='_')
+    storage_client = storage.Client.from_service_account_info(st.secrets["gcs_connections"])
     bucket = storage_client.get_bucket('streamlit-data-bucket')
-    blob = bucket.blob('intent/' + file_name)
-
-    try:
-        blob_data = blob.download_as_text()
-        existing_df = pd.read_csv(pd.compat.StringIO(blob_data))
-        updated_df = pd.concat([existing_df, df], ignore_index=True)
-    except Exception as e:
-        print(f"Error reading existing CSV. Creating a new one. Error: {e}")
-        updated_df = df
-
+    blob = bucket.blob('intent/' + gcs_file_name)
+    blob_data = blob.download_as_text()
+    existing_df = pd.read_csv(io.StringIO(blob_data))
+    updated_df = pd.concat([existing_df, df], ignore_index=True)
     updated_csv = updated_df.to_csv(index=False)
     blob.upload_from_string(updated_csv, content_type='text/csv')
 

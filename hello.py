@@ -50,7 +50,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
     form_container = st.empty()
     with form_container:
         with st.form(key='ind_responses_form'):
-            facilitator = st.number_input("Facilitator: Enter your creation number", step=1)
+            facilitator = st.number_input("Facilitator: Enter your creation number", min_value=1, step=1, format="%d")
             ind_form_responses = {
                 "my_world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
                 "my_planet": st.text_area("2. What is 'the planet' for you?", placeholder="You can put more than one idea down.", help="Contemplate your relationship and connection to the planet.").split('\\n'),
@@ -71,12 +71,15 @@ with tab3: # --- CONTRIBUTE AN INTENT---
                 submitted = False 
 
         if submitted:
-            """Creates an object from class Responses called "responses" The ** operator is used to unpack the ind_form_responses dictionary so that its key-value pairs are passed as keyword arguments into object. """
             responses = Responses(**ind_form_responses) # type: ignore #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
-            st.session_state['session'] = session # this is so you can show it on the page later
-            utils.better_session_to_csv(session, 'sessions.csv')
-            form_container.empty()
+            st.session_state['session'] = session #save that session object
+            utils.append_to_gcs_file(session, 'sessions.csv')
+            utils.append_to_gcs_file(responses, 'responses.csv')
+            st.title("Session Responses")
+            responses_dict = session.responses.dict()
+            st.json(responses_dict)
+            #form_container.empty()
     
     if submitted:
         rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
@@ -120,11 +123,14 @@ with tab5: # --- EXPLORE THE INTENTS ---
         else:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-
-    # Create connection object and retrieve Google Cloud file contents.
-    st.markdown('<span class="body markdown-text-container">Table of all Intents</span>', unsafe_allow_html=True)
+    st.markdown('<span class="body markdown-text-container">Table of all Responses</span>', unsafe_allow_html=True)
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
+    st.dataframe(df)
+    
+    st.markdown('<span class="body markdown-text-container">Table of all Sessions</span>', unsafe_allow_html=True)
+    conn = st.connection('gcs', type=FilesConnection)
+    df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
     st.dataframe(df)
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
