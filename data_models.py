@@ -1,8 +1,16 @@
 from typing import List, Dict, Tuple, Union, Optional
 import uuid
 from datetime import datetime
+from enum import Enum
 from pydantic import BaseModel, Field
 
+
+class EntityType(Enum):
+    IND = "ind"
+    TEAM = "team"
+    ORG = "org"
+    
+    
 
 class Responses(BaseModel):
     """
@@ -25,9 +33,7 @@ class Responses(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the responses",
                         examples=["6c1ddca9-596f-492b-9420-6289058eb34f"])
-    type: str = Field(default='ind',
-                      description="The type of entity that created the Intent statement",
-                      enum=["ind", "team", "org"])
+    type: EntityType = Field(default=EntityType.IND, description="The type of entity that created the Intent statement")
     my_world: List[str] = Field(
         description="1. What is your world?")
     my_planet: List[str] = Field(
@@ -74,10 +80,18 @@ class Responses(BaseModel):
 
 class Session(BaseModel):
     """
-    Usage examples
-    session_example = Session(facilitator=4, language='en', responses=Responses)
+    Information regarding the Intent session, including the responses
     
+    Usage examples
+    session_example = Session(facilitator=4, responses=responses_example)
+
+    Print all the session responses    
     print(session_example.responses.responses())
+    
+    Print the intent statement
+    print(example_session.responses.my_intent)
+
+    
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the session",
@@ -92,16 +106,16 @@ class Session(BaseModel):
         examples=["en", "es"])
     responses: Responses = Field(
         description="Structured responses from the session")
-
-
+    
+    
 
 class Entity(BaseModel):
     """Base class for an entity creating an Intent statement."""
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the entity")
-    creation_num: int = Field(
+    creation_num: Optional[int] = Field(
         description="The number of entities that have created an Intent statement at the time this entity created its first such statement.")
-    haplotype: str = Field(
+    haplotype: Optional[str] = Field(
         description="A code representing the lineage of the respondent as non-zero integers separated by dots", pattern=r'^[1-9]\d*(\.[1-9]\d*)*$',
         examples=["3.5.1.2"])
     session: Session = Field(
@@ -109,11 +123,20 @@ class Entity(BaseModel):
     statement_log: List[Dict[str, Union[List[str], datetime]]] = Field(
         default_factory=list, description="History of Intent statements made by the entity.")
 
+    def __init__(self, **data):
+        super().__init__(**data)  # Call the super class __init__ to handle standard initialization
+        # Automatically add the first entry to statement_log based on session information
+        if self.session:  # Ensure session is provided
+            self.statement_log.append({ # pylint: disable=no-member
+                "intent": self.session.responses.my_intent, # pylint: disable=no-member
+                "session_date": self.session.session_date # pylint: disable=no-member
+            })
+
     @property
     def created_at(self) -> datetime:
         """Gets the Initial date for the Entity based on the date of that entity's first Intent statement."""
         if self.statement_log:
-            updated_at = self.statement_log[0].get('updated_at')
+            updated_at = self.statement_log[0].get('updated_at') # pylint: disable=unsubscriptable-object
             if isinstance(updated_at, datetime):
                 return updated_at
             else:
@@ -122,16 +145,19 @@ class Entity(BaseModel):
     
 
     @property
-    def most_recent_intent_statement(self):
+    def get_most_recent_intent_statement(self):
         """Most recent Intent statement."""
         if self.statement_log:
-            return self.statement_log[-1]
+            return self.statement_log[-1] # pylint: disable=unsubscriptable-object
         return None
     
 
 
 class Individual(Entity):
-    """The person who has created an Intent statement."""
+    """The person who has created an Intent statement.
+    
+    Usage example
+    example_indvidividual = Individual(session=example_session)"""
     
 
 
@@ -145,7 +171,7 @@ class Team(Entity):
 class Organization(Entity):
     """The organization that has created an Intent statement."""
     members: List[Tuple[str, uuid.UUID]] = Field(
-        description="List of tuples, each containing a type (ind or team) and an entity UUID", 
+        description="List of tuples, each containing a type (ind or team) and an entity UUID",
         examples=[[
                 ("ind", "f334be7b-7ccc-4a00-ae56-2dd079029ddb"),
                 ("ind", "c450d91d-0e81-4129-a702-ba8243e3e2e2"),
@@ -175,8 +201,7 @@ class IntentStatement(BaseModel):
                         description="The unique identifier of the Intent", examples=["380b3fbe-68c3-448a-a57b-902fefadc6c6"])
     entity_id: uuid.UUID = Field(
         description="The ID of the entity that created the statement")
-    type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
-        "ind", "team", "org"])
+    type: EntityType = Field(default=EntityType.IND, description="The type of entity that created the Intent statement")
     name: Optional[str] = Field(description="The name of the Intent")
     statement: List[str] = Field(
         default_factory=list, description="The Intent statement")

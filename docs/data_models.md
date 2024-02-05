@@ -6,8 +6,8 @@
 classDiagram
     class Entity {
         +uuid id
-        +int creation_num
-        +str haplotype
+        +Optional int creation_num (optional)
+        +Optional str haplotype
         +Session session
         +List statement_log
     }
@@ -44,7 +44,7 @@ classDiagram
         +uuid id
         +uuid creator
         +str type
-        +Optional name
+        +Optional str name
         +List statement
         +datetime updated_at
         +str language
