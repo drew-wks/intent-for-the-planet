@@ -22,10 +22,11 @@ class Responses(BaseModel):
         my_intent=["To foster a world of equality and understanding"]
     )
     """
-    
-    id: uuid.UUID = Field(default_factory=uuid.uuid4, description="Unique identifier of the responses")
-    type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
-                      "ind", "team", "org"])
+    id: uuid.UUID = Field(default_factory=uuid.uuid4,
+                        description="Unique identifier of the responses")
+    type: str = Field(default='ind',
+                      description="The type of entity that created the Intent statement",
+                      enum=["ind", "team", "org"])
     my_world: List[str] = Field(
         description="1. What is your world?")
     my_planet: List[str] = Field(
@@ -51,7 +52,7 @@ class Responses(BaseModel):
 
     def responses(self):
         """Access the model's schema to get field descriptions
-         
+        
         Example usage
         print(response_example.responses())
         """
