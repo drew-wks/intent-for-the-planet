@@ -1,4 +1,4 @@
-## INTENT Data Models
+## INTENT Data Models Diagram
 
 <div style="border: 2px solid black; padding: 10px;">
 
