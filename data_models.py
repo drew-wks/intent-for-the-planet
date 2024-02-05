@@ -68,7 +68,6 @@ class Responses(BaseModel):
                 description = schema[key].get("description", key)  # Fallback to key if no description
                 # Join list values with '\n' to make them look nicer in text
                 filtered_dict[description] = '<br>'.join(value) if isinstance(value, list) else value
-                print("Debug: filtered_dict =", filtered_dict)
         return filtered_dict
 
 
