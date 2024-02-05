@@ -5,12 +5,6 @@ from enum import Enum
 from pydantic import BaseModel, Field
 
 
-class EntityType(Enum):
-    IND = "ind"
-    TEAM = "team"
-    ORG = "org"
-    
-    
 
 class Responses(BaseModel):
     """
@@ -33,7 +27,7 @@ class Responses(BaseModel):
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the responses",
                         examples=["6c1ddca9-596f-492b-9420-6289058eb34f"])
-    type: EntityType = Field(default=EntityType.IND, description="The type of entity that created the Intent statement")
+    type: str = Field(default='ind', description="The type of entity that created the Intent statement")
     my_world: List[str] = Field(
         description="1. What is your world?")
     my_planet: List[str] = Field(
@@ -199,7 +193,7 @@ class IntentStatement(BaseModel):
                         description="The unique identifier of the Intent", examples=["380b3fbe-68c3-448a-a57b-902fefadc6c6"])
     entity_id: uuid.UUID = Field(
         description="The ID of the entity that created the statement")
-    type: EntityType = Field(default=EntityType.IND, description="The type of entity that created the Intent statement")
+    type: str = Field(default="ind", description="The type of entity that created the Intent statement")
     name: Optional[str] = Field(description="The name of the Intent")
     statement: List[str] = Field(
         default_factory=list, description="The Intent statement. Supports a statement that is a list")
