@@ -23,7 +23,8 @@ class Responses(BaseModel):
     )
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                        description="Unique identifier of the responses")
+                        description="Unique identifier of the responses",
+                        examples=["6c1ddca9-596f-492b-9420-6289058eb34f"])
     type: str = Field(default='ind',
                       description="The type of entity that created the Intent statement",
                       enum=["ind", "team", "org"])
@@ -79,24 +80,30 @@ class Session(BaseModel):
     print(session_example.responses.responses())
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                        description="Unique identifier of the session")
+                        description="Unique identifier of the session",
+                        examples=["6c1ddca9-596f-492b-9420-6289058eb34f"])
+    session_date: datetime = Field(default_factory=datetime.now,
+        description="The date and time when the session occured in ISO 8601 format. This field is automatically populated when the session object is instatntiated.",
+        examples=["2024-01-08T12:00:00Z"])
     facilitator: int = Field(
         description="creation number of the facilitator. This will migrate to uuid in future")
     language: str = Field(
-        default='en', description="The language in which the Intent statement is written (e.g., 'en' for English, 'es' for Spanish)")
+        default='en', description="The language in which the Intent statement is written. Written as ISO 639 two-letter abbreviation (e.g., 'en' for English, 'es' for Spanish)",
+        examples=["en", "es"])
     responses: Responses = Field(
         description="Structured responses from the session")
 
 
 
 class Entity(BaseModel):
-    """Base class for an entity (individual or organization) creating an Intent statement."""
+    """Base class for an entity creating an Intent statement."""
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the entity")
     creation_num: int = Field(
-        description="The number of entities that have created an Intent statement at the time this entity created their first such statement.")
+        description="The number of entities that have created an Intent statement at the time this entity created its first such statement.")
     haplotype: str = Field(
-        description="A code representing the lineage of the respondent as non-zero integers separated by dots", pattern=r'^[1-9]\d*(\.[1-9]\d*)*$')
+        description="A code representing the lineage of the respondent as non-zero integers separated by dots", pattern=r'^[1-9]\d*(\.[1-9]\d*)*$',
+        examples=["3.5.1.2"])
     session: Session = Field(
         description="Session encapsulates all session-related info including session id, facilitator, and responses")
     statement_log: List[Dict[str, Union[List[str], datetime]]] = Field(
@@ -104,7 +111,7 @@ class Entity(BaseModel):
 
     @property
     def created_at(self) -> datetime:
-        """Initial date as the date of the first Intent statement."""
+        """Gets the Initial date for the Entity based on the date of that entity's first Intent statement."""
         if self.statement_log:
             updated_at = self.statement_log[0].get('updated_at')
             if isinstance(updated_at, datetime):
@@ -131,24 +138,33 @@ class Individual(Entity):
 class Team(Entity):
     """The team that has created an Intent statement."""
     ids: List[uuid.UUID] = Field(
-        description="List of individual IDs from the class Individual")
-    # Additional fields or methods specific to Organization
+        description="List of individual IDs from the class Individual", examples=["6c1ddca9-596f-492b-9420-6289058eb34f","380b3fbe-68c3-448a-a57b-902fefadc6c6"])
+
 
 
 class Organization(Entity):
     """The organization that has created an Intent statement."""
-    ids: List[Tuple[str, uuid.UUID]] = Field(
-        description="List of tuples, each containing a type ('team' or 'individual') and an entity UUID")
-    # Additional fields or methods specific to Organization
+    members: List[Tuple[str, uuid.UUID]] = Field(
+        description="List of tuples, each containing a type (ind or team) and an entity UUID", 
+        examples=[[
+                ("ind", "f334be7b-7ccc-4a00-ae56-2dd079029ddb"),
+                ("ind", "c450d91d-0e81-4129-a702-ba8243e3e2e2"),
+                ("ind", "cd97e8dc-1913-4841-aa78-d5edc5469793")
+            ]])
 
     """
     Usage example
     organization = Organization(
     creation_num=2,
-    responses=Responses(my_world=["My personal world view..."], ...)
-    member_ids=[uuid.uuid4(), uuid.uuid4()]
-                        )
+    session = session_example,
+        ids=[
+            ("ind", "f334be7b-7ccc-4a00-ae56-2dd079029ddb"),
+            ("ind", "c450d91d-0e81-4129-a702-ba8243e3e2e2"),
+            ("ind", "cd97e8dc-1913-4841-aa78-d5edc5469793")
+        ]
+    )
     """
+
 
 
 class IntentStatement(BaseModel):
@@ -156,7 +172,7 @@ class IntentStatement(BaseModel):
     An instance of this class represents a statement made by the individual.
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
-                          description="The unique identifier of the Intent")
+                        description="The unique identifier of the Intent", examples=["380b3fbe-68c3-448a-a57b-902fefadc6c6"])
     entity_id: uuid.UUID = Field(
         description="The ID of the entity that created the statement")
     type: str = Field(default='ind', description="The type of entity that created the Intent statement", enum=[
@@ -165,9 +181,9 @@ class IntentStatement(BaseModel):
     statement: List[str] = Field(
         default_factory=list, description="The Intent statement")
     updated_at: datetime = Field(
-        description="The date and time when the Intent statement was last updated. For the first version of an Intent, this is the creation date in ISO 8601 format", example="2024-01-08T12:00:00Z")
+        description="The date and time when the Intent statement was last updated. For the first version of an Intent, this is the creation date in ISO 8601 format", examples=["2024-01-08T12:00:00Z"])
     language: str = Field(
-        default='en', description="The language in which the Intent statement is written (e.g., 'en' for English, 'es' for Spanish)")
+        default='en', description="The language in which the Intent statement is written (e.g., 'en' for English, 'es' for Spanish)", examples=["en", "es"])
 
     """
     Usage example

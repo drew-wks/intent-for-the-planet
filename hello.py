@@ -80,14 +80,6 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             st.write(session.responses.responses())
     
             rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
-            file_content = ""
-            for key, values in session.responses.responses():
-                st.markdown(f"**{key}**:")
-                file_content += f"{key}:\n"  # Add key to the file content
-                for value in values:
-                    st.markdown(f"*{value}*")
-                    file_content += f"- {value}\n"  # Add value to the file content
-            file_content += "\n"  # Add a newline for spacing between sections
             st.success("Thank you for contributing this Intent for the planet!")
         
 

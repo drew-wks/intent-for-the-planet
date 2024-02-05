@@ -17,10 +17,11 @@ classDiagram
         +List ids
     }
     class Organization {
-        +List ids
+        +List members
     }
     class Session {
         +uuid id
+        +datetime session_date
         +uuid facilitator
         +str language
         +Responses responses
