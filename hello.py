@@ -76,7 +76,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             #st.session_state['session'] = session #save that session object
             utils.append_to_gcs_file(session, 'sessions.csv')
             st.markdown("Session Responses")
-            responses_dict = session.responses.responses()
+            responses_dict = responses.responses()
             st.write(responses_dict)
     
             rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
