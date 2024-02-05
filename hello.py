@@ -73,11 +73,11 @@ with tab3: # --- CONTRIBUTE AN INTENT---
         if submitted:
             responses = Responses(**ind_form_responses) # type: ignore #creates a response object
             session = Session(facilitator=facilitator, responses=responses) #creates a session object
-            st.session_state['session'] = session #save that session object
+            #st.session_state['session'] = session #save that session object
             utils.append_to_gcs_file(session, 'sessions.csv')
-            utils.append_to_gcs_file(responses, 'responses.csv')
-            st.title("Session Responses")
-            st.write(session.responses.responses())
+            st.markdown("Session Responses")
+            responses_dict = session.responses.responses()
+            st.write(responses_dict)
     
             rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
             st.success("Thank you for contributing this Intent for the planet!")

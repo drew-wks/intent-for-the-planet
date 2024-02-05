@@ -3,6 +3,7 @@ import uuid
 from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel, Field
+import os
 
 
 
@@ -67,6 +68,7 @@ class Responses(BaseModel):
                 description = schema[key].get("description", key)  # Fallback to key if no description
                 # Join list values with '\n' to make them look nicer in text
                 filtered_dict[description] = '<br>'.join(value) if isinstance(value, list) else value
+                os.write(1, filtered_dict)
 
         return filtered_dict
 
