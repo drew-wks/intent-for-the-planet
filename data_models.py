@@ -90,8 +90,6 @@ class Session(BaseModel):
     
     Print the intent statement
     print(example_session.responses.my_intent)
-
-    
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="Unique identifier of the session",
@@ -162,14 +160,14 @@ class Individual(Entity):
 
 
 class Team(Entity):
-    """The team that has created an Intent statement."""
+    """PLACEHOLDER CLASS The team that has created an Intent statement."""
     ids: List[uuid.UUID] = Field(
         description="List of individual IDs from the class Individual", examples=["6c1ddca9-596f-492b-9420-6289058eb34f","380b3fbe-68c3-448a-a57b-902fefadc6c6"])
 
 
 
 class Organization(Entity):
-    """The organization that has created an Intent statement."""
+    """PLACEHOLDER CLASS The organization that has created an Intent statement."""
     members: List[Tuple[str, uuid.UUID]] = Field(
         description="List of tuples, each containing a type (ind or team) and an entity UUID",
         examples=[[
@@ -195,7 +193,7 @@ class Organization(Entity):
 
 class IntentStatement(BaseModel):
     """
-    An instance of this class represents a statement made by the individual.
+    PLACEHOLDER CLASS An instance of this class represents a single intent statement made by the entity. We may not need this class at all since intent statements are easily accessible through the responses, session, and entity classes. If we do use this, we'll need to sort out how to assign the dates below.
     """
     id: uuid.UUID = Field(default_factory=uuid.uuid4,
                         description="The unique identifier of the Intent", examples=["380b3fbe-68c3-448a-a57b-902fefadc6c6"])
@@ -204,7 +202,7 @@ class IntentStatement(BaseModel):
     type: EntityType = Field(default=EntityType.IND, description="The type of entity that created the Intent statement")
     name: Optional[str] = Field(description="The name of the Intent")
     statement: List[str] = Field(
-        default_factory=list, description="The Intent statement")
+        default_factory=list, description="The Intent statement. Supports a statement that is a list")
     updated_at: datetime = Field(
         description="The date and time when the Intent statement was last updated. For the first version of an Intent, this is the creation date in ISO 8601 format", examples=["2024-01-08T12:00:00Z"])
     language: str = Field(
@@ -222,7 +220,7 @@ class IntentStatement(BaseModel):
 
 class IntentsCollection(BaseModel):
     """
-    If we plan to perform operations on a collection of intent statements as a whole (e.g., filtering, sorting, aggregating, or managing intents in groups), we might consider having a separate class to represent a collection of intents. The IntentsCollection class, could contain methods and properties for working with multiple intent statements.
+    PLACEHOLDER CLASS If we plan to perform operations on a collection of intent statements as a whole (e.g., filtering, sorting, aggregating, or managing intents in groups), we might consider having a separate class to represent a collection of intents. The IntentsCollection class, could contain methods and properties for working with multiple intent statements.
     """
     
     intents: List[IntentStatement] = []
