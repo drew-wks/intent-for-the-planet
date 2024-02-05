@@ -50,7 +50,7 @@ class Responses(BaseModel):
 
 
     """
-    usage example
+    Usage example
     response_example = Responses(
         my_world=["A place of unity and respect"],
         my_planet=["A shared home for all beings"],
@@ -65,6 +65,8 @@ class Responses(BaseModel):
         do_less=["Spending time on trivial matters", "Neglecting self-care"],
         my_intent=["To foster a world of equality and understanding"]
     )
+
+    print(response_example.responses())
     """
 
 
@@ -80,11 +82,15 @@ class Session(BaseModel):
 
     """
     Usage example
-    session = Session(
+    session_example = Session(
         facilitator=4,
         language='en',
         responses=Responses
     )
+    
+    
+    """
+    print(session_example.responses.responses())
     """
 
 
@@ -114,11 +120,7 @@ class Entity(BaseModel):
         if self.statement_log:
             return self.statement_log[-1]
         return None
-
-    """
-    Usage example
-
-    """
+    
 
 
 class Individual(Entity):

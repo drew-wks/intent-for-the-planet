@@ -77,9 +77,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             utils.append_to_gcs_file(session, 'sessions.csv')
             utils.append_to_gcs_file(responses, 'responses.csv')
             st.title("Session Responses")
-            responses_dict = session.responses.dict()
-            st.json(responses_dict)
-            #form_container.empty()
+            st.markdown(session.responses.responses())
     
     if submitted:
         rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
