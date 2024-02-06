@@ -43,11 +43,10 @@ with tab2: # ---FACILITATOR'S GUIDE---
 
 with tab3: # --- CONTRIBUTE AN INTENT---
     st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
-    st.markdown('<p class="body">Use this form for an initial intent session for an individual person. To refine an Intent statement, use the Refine an INTENT tab.</p>', unsafe_allow_html=True)
-    st.markdown('<div style="margin-top: 15px;"></div>', unsafe_allow_html=True)
     form_container = st.empty()
     with form_container:
         with st.form(key='ind_responses_form'):
+            st.markdown('<p class="body">Use this form for an initial intent session for an individual person. To refine an Intent statement, use the Refine an INTENT tab.</p>', unsafe_allow_html=True)
             facilitator = st.number_input("Facilitator: Enter your creation number", min_value=1, step=1, format="%d")
             ind_form_responses = {
                 "my_world": st.text_area("1. What is your world?", placeholder="Reflect on what constitutes 'your world.' Just write down what comes to mind.", help="When you think of 'your world' what comes to mind? What is it that you can influence?").split('\\n'),
@@ -81,14 +80,12 @@ with tab3: # --- CONTRIBUTE AN INTENT---
     
             #rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
             #st.success("Thank you for contributing this Intent for the planet!")
-        
-
-        st.download_button(
-            label="Download Responses as Text",
-            data=formatted_markdown,
-            file_name=f"my_IFTP_{utils.now_utc}.txt",
-            mime="text/plain"
-        )
+            #st.download_button(
+            #    label="Download your Intent Statement",
+            #    data=formatted_markdown,
+            #    file_name=f"my_IFTP_{utils.now_utc}.txt",
+            #    mime="text/plain"
+            #)
 
 
 with tab4: # --- REFINE AN INTENT ---
@@ -111,15 +108,31 @@ with tab5: # --- EXPLORE THE INTENTS ---
         else:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-    st.markdown('<span class="body markdown-text-container">Table of all Responses</span>', unsafe_allow_html=True)
-    conn = st.connection('gcs', type=FilesConnection)
-    df = conn.read("streamlit-data-bucket/intent/responses.csv", input_format="csv", ttl=600)
-    st.dataframe(df)
     
-    st.markdown('<span class="body markdown-text-container">Table of all Sessions</span>', unsafe_allow_html=True)
+    
+    #Get Dataset from GCS
     conn = st.connection('gcs', type=FilesConnection)
     df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
-    st.dataframe(df)
+    clean_df = utils.clean_df_list_columns(df)
+    
+    # Session Viewer
+    st.markdown('<span class="body markdown-text-container">Session Viewer</span>', unsafe_allow_html=True)
+    next_row, prev_row = utils.pd_row_navigation(df)
+    current_row = df.iloc[st.session_state['current_row_index']]
+    st.dataframe(current_row, width=1800, height=630)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.button('Next', on_click=next_row)  # "Next" moves up in reverse order
+    with col2:
+        st.button('Previous', on_click=prev_row)  # "Previous" moves down in reverse order
+        
+    # All Sessions
+    st.markdown('<span class="body markdown-text-container">Table of all Sessions</span>', unsafe_allow_html=True)
+    st.dataframe(clean_df, width=2500)
+    
+    
+
+        
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""

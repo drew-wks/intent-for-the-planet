@@ -13,6 +13,8 @@ import pandas as pd
 from st_files_connection import FilesConnection
 import logging
 from google.cloud import storage
+import pandas as pd
+import ast
 
 
 api_key = st.secrets["QDRANT_API_KEY_2"]
@@ -97,6 +99,53 @@ responses_dict = {
     '10. What do you need to do less of?': 'Spending time on trivial matters\nNeglecting self-care',
     'My Intent For the Planet': 'To foster a world of equality and understanding\nTo provide food for us all\nTo have an educated and caring world'
 }
+
+
+
+def clean_df_list_columns(df):
+    """
+    Cleans columns in the DataFrame that contain string representations of lists,
+    converting them to a string with items separated by newline characters.
+    """
+    def clean_list_field(list_str):
+        try:
+            actual_list = ast.literal_eval(list_str)
+            if isinstance(actual_list, list):
+                return '\n'.join(actual_list)
+            else:
+                return list_str
+        except (ValueError, SyntaxError):
+            return list_str
+
+    for column in df.columns:
+        if df[column].dtype == 'object':
+            df[column] = df[column].apply(lambda x: clean_list_field(x) if pd.notnull(x) else x)
+
+    return df
+
+
+
+def pd_row_navigation(df):
+    """
+    Sets up navigation for viewing DataFrame rows one at a time in Streamlit.
+    
+    Returns:
+    - A tuple of functions (next_row, prev_row) for navigating the DataFrame rows.
+    """
+    if 'current_row_index' not in st.session_state:
+        st.session_state['current_row_index'] = len(df) - 1  # Start from the last row
+
+    def next_row():
+        # Decrement the index to move to the previous row in natural order, which is "next" in reverse
+        if st.session_state['current_row_index'] > 0:
+            st.session_state['current_row_index'] -= 1
+
+    def prev_row():
+        # Increment the index to move to the next row in natural order, which is "previous" in reverse
+        if st.session_state['current_row_index'] < len(df) - 1:
+            st.session_state['current_row_index'] += 1
+
+    return next_row, prev_row
 
 
 
