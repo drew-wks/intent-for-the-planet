@@ -5,7 +5,7 @@
 ```mermaid
 classDiagram
     class Entity {
-        +uuid id
+        +uuid entity_id
         +Optional int creation_num (optional)
         +Optional str haplotype
         +Session session
@@ -20,13 +20,14 @@ classDiagram
         +List members
     }
     class Session {
-        +uuid id
         +datetime session_date
         +uuid facilitator
-        +str language
         +Responses responses
+        +str language
+        +uuid session_id
     }
     class Responses {
+        +uuid responses_id
         +str type
         +List my_world
         +List my_planet

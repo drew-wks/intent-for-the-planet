@@ -3,7 +3,7 @@ import json
 import io
 from datetime import datetime
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 import uuid
 from uuid import UUID
 from qdrant_client import QdrantClient, models 
@@ -46,7 +46,9 @@ class JSONEncoder(json.JSONEncoder):
 
 
 def append_to_gcs_file(data_object, gcs_file_name):
-    '''Example usage
+    '''Appends the new session info to sessions.csv. Creates a new file if none.
+    
+    Example usage
     append_to_gcs_file(session, 'sessions.csv')
     '''
     data_object_dict = data_object.dict(by_alias=True)
@@ -54,9 +56,13 @@ def append_to_gcs_file(data_object, gcs_file_name):
     storage_client = storage.Client.from_service_account_info(st.secrets["gcs_connections"])
     bucket = storage_client.get_bucket('streamlit-data-bucket')
     blob = bucket.blob('intent/' + gcs_file_name)
-    blob_data = blob.download_as_text()
-    existing_df = pd.read_csv(io.StringIO(blob_data))
-    updated_df = pd.concat([existing_df, df], ignore_index=True)
+    try:
+        blob_data = blob.download_as_text()
+        existing_df = pd.read_csv(io.StringIO(blob_data))
+        updated_df = pd.concat([existing_df, df], ignore_index=True)
+    except Exception as e:
+        updated_df = df
+          
     updated_csv = updated_df.to_csv(index=False)
     blob.upload_from_string(updated_csv, content_type='text/csv')
 
@@ -120,7 +126,7 @@ def clean_df_list_columns(df):
     for column in df.columns:
         if df[column].dtype == 'object':
             df[column] = df[column].apply(lambda x: clean_list_field(x) if pd.notnull(x) else x)
-
+    df['facilitator'] = df['facilitator'].astype(str)
     return df
 
 

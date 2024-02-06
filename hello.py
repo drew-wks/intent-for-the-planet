@@ -115,6 +115,7 @@ with tab5: # --- EXPLORE THE INTENTS ---
     df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
     clean_df = utils.clean_df_list_columns(df)
     
+    
     # Session Viewer
     st.markdown('<span class="body markdown-text-container">Session Viewer</span>', unsafe_allow_html=True)
     next_row, prev_row = utils.pd_row_navigation(df)
@@ -129,7 +130,6 @@ with tab5: # --- EXPLORE THE INTENTS ---
     # All Sessions
     st.markdown('<span class="body markdown-text-container">Table of all Sessions</span>', unsafe_allow_html=True)
     st.dataframe(clean_df, width=2500)
-    
     
 
         
