@@ -70,12 +70,16 @@ def dict_to_markdown(dict):
     Returns:
     - A string formatted in Markdown.
     """
-    markdown_str = ""
+    now_date = datetime.now()
+    formatted_date = now_date.strftime("%A, %B %d, %Y")
+    
+    markdown_str = "### My INTENT for the Planet\n  "
+    markdown_str += f"{formatted_date}\n\n<br>"
     for question, response in dict.items():
         # Split responses into lines for multi-line responses
-        formatted_response = response.replace("\n", "\n\n")
+        formatted_response = response.replace("\n", "<br>")
         # Append the question and formatted response to the Markdown string
-        markdown_str += f"**{question}**\n\n{formatted_response}\n\n"
+        markdown_str += f"**{question}**<br>{formatted_response}\n\n"
     
     return markdown_str
 

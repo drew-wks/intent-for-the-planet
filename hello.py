@@ -74,7 +74,7 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             #st.session_state['session'] = session #save that session object
             utils.append_to_gcs_file(session, 'sessions.csv')
             st.markdown("Session Responses")
-            response_dict = responses.responses()
+            responses_dict = responses.responses()
             formatted_markdown = utils.dict_to_markdown(responses_dict)
             st.markdown(formatted_markdown, unsafe_allow_html=True)
     
