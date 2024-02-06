@@ -76,19 +76,19 @@ with tab3: # --- CONTRIBUTE AN INTENT---
             st.markdown("Session Responses")
             responses_dict = responses.responses()
             formatted_markdown = utils.dict_to_markdown(responses_dict)
+            #st.session_state['formatted_markdown'] = formatted_markdown #save the formatted response
             st.markdown(formatted_markdown, unsafe_allow_html=True)
     
             #rain(emoji="🌍", font_size=54, falling_speed=5, animation_length=100)
             #st.success("Thank you for contributing this Intent for the planet!")
         
 
-        # Create a download button
-        #st.download_button(
-        #    label="Download Responses as Text",
-        #    data=file_content,
-        #    file_name=f"my_IFTP_{utils.now_utc}.txt",
-        #    mime="text/plain"
-        # )
+        st.download_button(
+            label="Download Responses as Text",
+            data=formatted_markdown,
+            file_name=f"my_IFTP_{utils.now_utc}.txt",
+            mime="text/plain"
+        )
 
 
 with tab4: # --- REFINE AN INTENT ---
