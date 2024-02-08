@@ -110,10 +110,13 @@ with tab5: # --- EXPLORE THE INTENTS ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
     
     
-    #Get Dataset from GCS
-    conn = st.connection('gcs', type=FilesConnection)
-    df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
-    clean_df = utils.clean_df_list_columns(df)
+    def get_dataset_from_gcs():
+        conn = st.connection('gcs', type=FilesConnection)
+        df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
+        clean_df = utils.clean_df_list_columns(df)
+        return clean_dr
+    
+    clean_df = load_data_from_gcs()
     
     
     # Session Viewer

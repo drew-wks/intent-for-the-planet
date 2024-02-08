@@ -17,6 +17,7 @@ venv*.bak/
 # Personal Docs
 .DS_Store
 Local/
+private/
 
 
 # Streamlit
