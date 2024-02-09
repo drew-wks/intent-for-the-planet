@@ -15,7 +15,7 @@ classDiagram
     }
     class Team {
         +uuid representative_id
-        +List ids
+        +List individual.ids
     }
     class Organization {
         +uuid representative_id
