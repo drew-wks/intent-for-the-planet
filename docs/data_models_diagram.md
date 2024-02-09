@@ -14,11 +14,12 @@ classDiagram
     class Individual {
     }
     class Team {
+        +uuid representative_id
         +List ids
     }
     class Organization {
         +List members
-        +uuid representative
+        +uuid representative_id
     }
     class Session {
         +datetime session_date
