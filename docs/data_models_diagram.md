@@ -76,8 +76,25 @@ classDiagram
 
 </div>
 
+
+
 ### Initial flow: 
 1. The first Entity object is created by hand   
 2. A response object is created. 
 3. A session object is created. It contains the facilitator entity and the responses
 4. An entity is created. It contains reference to their session
+
+### Flow
+1. Facilitator goes to STAN A/S website authenticate as a facilitator and provides participant contact info
+2. STAN sends a unique ID to System
+3. System initializes "temp" Steward object, sends consent request to participant
+4. Participant consents
+5. Participant creates a responses
+6. Facilitator populates form with responses and submits
+7. System initializes Steward object, stores reponses as temp and sends to STAN A/S
+8. STAN A/S sends to partipant and facilitator
+8. Participant receives thank you from STAN A/S with responses and consent form
+9. STAN A/S intructs System
+10. System to pushes session to THE WELL (i.e., assigns creation number, faciltator gets credit) 
+
+
