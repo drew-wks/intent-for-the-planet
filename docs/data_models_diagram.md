@@ -15,17 +15,17 @@ classDiagram
     class Individual {
     }
     class Team {
-        +uuid representative_id**
+        +Individual representative**
         +List ids**
     }
     class Organization {
-        +uuid representative_id**
+        +Individual representative**
         +List members
     }
     class Session {
         +datetime session_date
-        +uuid facilitator
-        +uuid scribe
+        +Individual facilitator
+        +Individual scribe
         +Responses responses
         +str language
         +uuid session_id
@@ -64,6 +64,9 @@ classDiagram
     Steward <|-- Organization : isA
     Session--|> "1" IntentStatement : creates
     Individual --o "1" Session : has
+    Individual <|-- Facilitator
+    Individual <|-- Representative
+    Individual <|-- Scribe
     Team --o "1" Session : has
     Organization --o "1" Session : has
 
