@@ -4,7 +4,7 @@
 
 ```mermaid
 classDiagram
-    class Entity {
+    class Steward {
         +uuid entity_id
         +Optional int creation_num
         +Optional str haplotype
@@ -25,6 +25,7 @@ classDiagram
     class Session {
         +datetime session_date
         +uuid facilitator
+        +uuid scribe
         +Responses responses
         +str language
         +uuid session_id
