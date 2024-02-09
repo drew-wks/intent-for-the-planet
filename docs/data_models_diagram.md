@@ -8,18 +8,18 @@ classDiagram
         +uuid entity_id
         +Optional int creation_num
         +Optional str haplotype
-        + str species
+        + str species**
         +Session session
         +List statement_log
     }
     class Individual {
     }
     class Team {
-        +uuid representative_id
-        +List individual.ids
+        +uuid representative_id**
+        +List individual.ids**
     }
     class Organization {
-        +uuid representative_id
+        +uuid representative_id**
         +List members
     }
     class Session {
