@@ -6,7 +6,7 @@
 classDiagram
     class Entity {
         +uuid entity_id
-        +Optional int creation_num (optional)
+        +Optional int creation_num
         +Optional str haplotype
         +Session session
         +List statement_log
