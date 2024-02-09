@@ -5,7 +5,7 @@
 ```mermaid
 classDiagram
     class Steward {
-        +uuid entity_id
+        +uuid entity_id *STEWARD
         +Optional int creation_num
         +Optional str haplotype
         + str species**
@@ -59,9 +59,9 @@ classDiagram
     }
     IntentsCollection --* IntentStatement : contains
     Session --* "1" Responses : contains
-    Entity <|-- Individual : isA
-    Entity <|-- Team : isA
-    Entity <|-- Organization : isA
+    Steward <|-- Individual : isA
+    Steward <|-- Team : isA
+    Steward <|-- Organization : isA
     Session--|> "1" IntentStatement : creates
     Individual --o "1" Session : has
     Team --o "1" Session : has
