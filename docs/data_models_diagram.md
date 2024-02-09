@@ -65,9 +65,10 @@ classDiagram
     Steward <|-- Organization : isA
     Session--|> "1" IntentStatement : creates
     Individual --o "1" Session : has
-    Individual <|-- Facilitator
-    Individual <|-- Representative
-    Individual <|-- Scribe
+    Individual <|-- participant
+    Individual <|-- facilitator
+    Individual <|-- representative
+    Individual <|-- scribe
     Team --o "1" Session : has
     Organization --o "1" Session : has
 
