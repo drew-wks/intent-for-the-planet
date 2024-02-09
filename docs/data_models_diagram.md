@@ -76,6 +76,9 @@ classDiagram
 
 </div>
 
+## 
+THE WELL is about INTENTs. It holds the INTENT statements and associated responses. It creates a resource --collective wisdom-- out of them.
+STEWARD is about identity. It authenticates, maintains and protects identity information. It initiates all creation and changes to INTENT statements.
 
 
 ### Initial flow: 
@@ -84,17 +87,17 @@ classDiagram
 3. A session object is created. It contains the facilitator entity and the responses
 4. An entity is created. It contains reference to their session
 
-### Flow
-1. Facilitator goes to STAN A/S website authenticate as a facilitator and provides participant contact info
-2. STAN sends a unique ID to System
-3. System initializes "temp" Steward object, sends consent request to participant
+### Create an initial INTENT Statement
+1. Facilitator authenticates with STEWARD and provides participant contact info
+3. STWEARD initializes a Steward object, sends consent request to participant
 4. Participant consents
-5. Participant creates a responses
-6. Facilitator populates form with responses and submits
-7. System initializes Steward object, stores reponses as temp and sends to STAN A/S
-8. STAN A/S sends to partipant and facilitator
-8. Participant receives thank you from STAN A/S with responses and consent form
-9. STAN A/S intructs System
-10. System to pushes session to THE WELL (i.e., assigns creation number, faciltator gets credit) 
+5. STEWARD sends a unique ID to THE WELL
+6. Participant creates a responses 
+7. Facilitator populates THE WELL form with responses and submits 
+8. THE WELL stores reponses with unique ID as temp and informs STEWARD 
+9. STEWARD sends to partipant and facilitator
+10. Participant receives thank you from STEWARD with responses and consent form
+11. STEWARD informs THE WELL, assigns creation number, faciltator gets credit
+12. THE WELL to publishes session  
 
-
+## UPDATE and INTENT STATEMENT
