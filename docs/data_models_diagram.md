@@ -8,6 +8,7 @@ classDiagram
         +uuid entity_id
         +Optional int creation_num
         +Optional str haplotype
+        + str species
         +Session session
         +List statement_log
     }
