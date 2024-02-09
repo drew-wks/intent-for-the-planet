@@ -21,6 +21,7 @@ classDiagram
     class Organization {
         +Individual Representative**
         +Optional List Team
+        +Optional List Individual
     }
     class Session {
         +datetime session_date
