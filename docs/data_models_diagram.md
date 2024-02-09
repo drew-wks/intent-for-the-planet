@@ -20,7 +20,7 @@ classDiagram
     }
     class Organization {
         +Individual Representative**
-        +List Individual
+        +Optional List Team
     }
     class Session {
         +datetime session_date
