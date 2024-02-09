@@ -15,17 +15,17 @@ classDiagram
     class Individual {
     }
     class Team {
-        +Individual representative**
+        +Individual Representative**
         +List ids**
     }
     class Organization {
-        +Individual representative**
-        +List members
+        +Individual Representative**
+        +List Individual
     }
     class Session {
         +datetime session_date
-        +Individual facilitator
-        +Individual scribe
+        +Individual Facilitator
+        +Individual Scribe
         +Responses responses
         +str language
         +uuid session_id
