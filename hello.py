@@ -115,15 +115,19 @@ with tab5:  # --- EXPLORE THE INTENTS ---
         clean_df = utils.clean_df_list_columns(df)
         return clean_df
 
-    # Add a button to load the dataset from GCS
-    if st.button('Load Latest Dataset'):
+    # Initialize clean_df with an empty DataFrame or load it immediately
+    # This ensures clean_df is always defined
+    clean_df = get_dataset_from_gcs()  # Load immediately or use pd.DataFrame() for an empty DataFrame
+
+    # Add a button to reload the dataset from GCS
+    if st.button('Reload Latest Dataset'):
         clean_df = get_dataset_from_gcs()
-        st.success('Dataset loaded successfully!')
+        st.success('Dataset reloaded successfully!')
 
     # Assuming clean_df is defined and loaded successfully above
     # Session Viewer
     st.markdown('<span class="body markdown-text-container">Session Viewer</span>', unsafe_allow_html=True)
-    next_row, prev_row = utils.pd_row_navigation(clean_df)  # Assuming clean_df is available here
+    next_row, prev_row = utils.pd_row_navigation(clean_df)
     current_row = clean_df.iloc[st.session_state['current_row_index']]
     st.dataframe(current_row, width=1800, height=630)
     col1, col2 = st.columns(2)
