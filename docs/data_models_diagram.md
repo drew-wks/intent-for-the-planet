@@ -18,8 +18,8 @@ classDiagram
         +List ids
     }
     class Organization {
-        +List members
         +uuid representative_id
+        +List members
     }
     class Session {
         +datetime session_date
