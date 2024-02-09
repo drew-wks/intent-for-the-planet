@@ -92,7 +92,7 @@ with tab4: # --- REFINE AN INTENT ---
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     st.markdown('<p class="body">Form under development</p>', unsafe_allow_html=True)
 
-with tab5: # --- EXPLORE THE INTENTS ---
+with tab5:  # --- EXPLORE THE INTENTS ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
     st.markdown('<span class="body markdown-text-container">Ask a question of the collection of INTENTs:</span>', unsafe_allow_html=True)
     question = st.text_input("question", "", placeholder="Type your question here")
@@ -102,40 +102,39 @@ with tab5: # --- EXPLORE THE INTENTS ---
     if st.button("Submit", type="primary"):
         if question:
             query_response = utils.query(question, response_file)
-            st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True) 
+            st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
             st.markdown(f'<p class="header">Response:</p><div class="body">{query_response}</div>', unsafe_allow_html=True)
-
         else:
             st.write("Please enter a question.")
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
-    
-    
+
+    # Define the function to get dataset from GCS
     def get_dataset_from_gcs():
         conn = st.connection('gcs', type=FilesConnection)
         df = conn.read("streamlit-data-bucket/intent/sessions.csv", input_format="csv", ttl=600)
         clean_df = utils.clean_df_list_columns(df)
-        return clean_dr
-    
-    clean_df = load_data_from_gcs()
-    
-    
+        return clean_df
+
+    # Add a button to load the dataset from GCS
+    if st.button('Load Latest Dataset'):
+        clean_df = get_dataset_from_gcs()
+        st.success('Dataset loaded successfully!')
+
+    # Assuming clean_df is defined and loaded successfully above
     # Session Viewer
     st.markdown('<span class="body markdown-text-container">Session Viewer</span>', unsafe_allow_html=True)
-    next_row, prev_row = utils.pd_row_navigation(df)
-    current_row = df.iloc[st.session_state['current_row_index']]
+    next_row, prev_row = utils.pd_row_navigation(clean_df)  # Assuming clean_df is available here
+    current_row = clean_df.iloc[st.session_state['current_row_index']]
     st.dataframe(current_row, width=1800, height=630)
     col1, col2 = st.columns(2)
     with col1:
         st.button('Next', on_click=next_row)  # "Next" moves up in reverse order
     with col2:
         st.button('Previous', on_click=prev_row)  # "Previous" moves down in reverse order
-        
+
     # All Sessions
     st.markdown('<span class="body markdown-text-container">Table of all Sessions</span>', unsafe_allow_html=True)
-    st.dataframe(clean_df, width=2500)
-    
-
-        
+    st.dataframe(clean_df, width=2500)  # Assuming clean_df is available here
 
 st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
 st.markdown("""
