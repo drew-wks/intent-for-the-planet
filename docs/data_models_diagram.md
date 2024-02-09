@@ -5,7 +5,7 @@
 ```mermaid
 classDiagram
     class Steward {
-        +uuid entity_id *STEWARD
+        +uuid id *STEWARD
         +Optional int creation_num
         +Optional str haplotype
         + str species**
@@ -16,7 +16,7 @@ classDiagram
     }
     class Team {
         +uuid representative_id**
-        +List individual.ids**
+        +List ids**
     }
     class Organization {
         +uuid representative_id**
@@ -24,8 +24,8 @@ classDiagram
     }
     class Session {
         +datetime session_date
-        +uuid facilitator_id
-        +uuid scribe_id
+        +uuid facilitator
+        +uuid scribe
         +Responses responses
         +str language
         +uuid session_id
