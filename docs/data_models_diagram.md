@@ -47,7 +47,7 @@ classDiagram
     }
     class IntentStatement {
         +uuid id
-        +uuid participant*
+        +uuid participant**
         +str type
         +Optional str name
         +List statement
