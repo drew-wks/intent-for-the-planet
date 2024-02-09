@@ -24,8 +24,8 @@ classDiagram
     }
     class Session {
         +datetime session_date
-        +uuid facilitator
-        +uuid scribe
+        +uuid facilitator_id
+        +uuid scribe_id
         +Responses responses
         +str language
         +uuid session_id
