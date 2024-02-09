@@ -16,7 +16,7 @@ classDiagram
     }
     class Team {
         +Individual Representative**
-        +List ids**
+        +List Individual
     }
     class Organization {
         +Individual Representative**
