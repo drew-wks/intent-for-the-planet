@@ -30,7 +30,7 @@ st.markdown("""
 st.markdown('<p class="sub-header">The intent of the session is to encourage introspection and personal growth, leading to a broader impact on the planet and its inhabitants.</p><br>', unsafe_allow_html=True)
 
 
-tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Facilitator's Guide", "Contribute an INTENT", "Refine an INTENT", "Explore the INTENTs"])
+tab1, tab2, tab3, tab4, tab5= st.tabs(["About INTENT", "Facilitator's Guide", "Contribute an INTENT", "Refine an INTENT", "Explore THE WELL"])
 
 with tab1: # ---ABOUT INTENT---
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
@@ -92,7 +92,7 @@ with tab4: # --- REFINE AN INTENT ---
     st.markdown('<div style="margin-top: 30px;"></div>', unsafe_allow_html=True)
     st.markdown('<p class="body">Form under development</p>', unsafe_allow_html=True)
 
-with tab5:  # --- EXPLORE THE INTENTS ---
+with tab5:  # --- EXPLORE THE WELL ---
     st.markdown('<div style="margin-top: 40px;"></div>', unsafe_allow_html=True)
     st.markdown('<span class="body markdown-text-container">Ask a question of THE WELL:</span>', unsafe_allow_html=True)
     question = st.text_input("question", "", placeholder="Type your question here")
