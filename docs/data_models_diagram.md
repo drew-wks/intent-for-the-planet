@@ -66,10 +66,10 @@ STEWARD is about identity. It authenticates, maintains and protects identity inf
 
 
 ### Initial flow: 
-1. The first Entity object is created by hand   
-2. A response object is created. 
-3. A session object is created. It contains the facilitator entity and the responses
-4. An entity is created. It contains reference to their session
+1. The first Steward object is created by hand   
+2. A Response object is created. 
+3. A Session object is created. It contains the partifipant, facilitator, scribe and the responses
+4. An Individual is created. It contains reference to their session
 
 ### Create an initial INTENT Statement
 1. Facilitator authenticates with STEWARD and provides participant contact info
