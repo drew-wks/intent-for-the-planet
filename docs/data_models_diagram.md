@@ -52,7 +52,6 @@ classDiagram
     Steward <|-- Individual : isA
     Steward <|-- Team : isA
     Steward <|-- Organization : isA
-    Session--|> "1" IntentStatement : creates
     Individual --o "1" Session : has
     Team --o "1" Session : has
     Organization --o "1" Session : has
