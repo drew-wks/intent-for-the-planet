@@ -52,9 +52,9 @@ classDiagram
     Steward <|-- Individual : isA
     Steward <|-- Team : isA
     Steward <|-- Organization : isA
-    Individual --o "1" Session : has
-    Team --o "1" Session : has
-    Organization --o "1" Session : has
+    Individual --o "*" Session : has
+    Team --o "*" Session : has
+    Organization --o "*" Session : has
 
 ```
 
