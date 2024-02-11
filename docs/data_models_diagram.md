@@ -47,19 +47,7 @@ classDiagram
         +List do_less
         +List my_intent
     }
-    class IntentStatement {
-        +uuid intent_id
-        +uuid participant**
-        +str type
-        +Optional str name
-        +List statement
-        +datetime updated_at
-        +str language
-    }
-    class IntentsCollection {
-        +List intents
-    }
-    IntentsCollection --* IntentStatement : contains
+
     Session --* "1" Responses : contains
     Steward <|-- Individual : isA
     Steward <|-- Team : isA
