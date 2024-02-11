@@ -15,11 +15,11 @@ classDiagram
     class Individual {
     }
     class Team {
-        +Individual Representative**
+        +Individual representative**
         +List Individual
     }
     class Organization {
-        +Individual Representative**
+        +Individual representative**
         +Optional List Team
         +Optional List Individual
     }
