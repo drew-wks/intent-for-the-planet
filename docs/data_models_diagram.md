@@ -5,7 +5,7 @@
 ```mermaid
 classDiagram
     class Steward {
-        +uuid id *STEWARD
+        +uuid steward_id
         +Optional int creation_num
         +Optional str haplotype
         + str species**
@@ -25,8 +25,9 @@ classDiagram
     }
     class Session {
         +datetime session_date
-        +Individual Facilitator
-        +Individual Scribe
+        +Individual participant
+        +Individual facilitator
+        +Individual scribe
         +Responses responses
         +str language
         +uuid session_id
@@ -47,7 +48,7 @@ classDiagram
         +List my_intent
     }
     class IntentStatement {
-        +uuid id
+        +uuid intent_id
         +uuid participant**
         +str type
         +Optional str name
