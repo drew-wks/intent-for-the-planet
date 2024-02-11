@@ -12,15 +12,6 @@ classDiagram
         +Session session
         +List statement_log
     }
-    class Team {
-        +Individual representative
-        +List individual
-    }
-    class Organization {
-        +Individual representative
-        +Optional List team
-        +Optional List individual
-    }
     class Session {
         +datetime session_date
         +Individual participant
